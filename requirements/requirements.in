@@ -1,0 +1,4 @@
+django
+jinja2
+pytest
+pytest-randomly
