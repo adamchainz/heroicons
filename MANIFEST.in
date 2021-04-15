@@ -5,6 +5,7 @@ prune requirements
 include HISTORY.rst
 include LICENSE
 include README.rst
+include src/heroicons/hericons.zip
 exclude .editorconfig
 exclude .pre-commit-config.yaml
 include pyproject.toml
