@@ -28,7 +28,7 @@ def main(args=None):
     input_zip = ZipFile(BytesIO(response.content))
     input_prefix = f"heroicons-{version}/optimized/"
 
-    output_path = "src/heroicons/hericons.zip"
+    output_path = "src/heroicons/heroicons.zip"
 
     try:
         os.remove(output_path)
