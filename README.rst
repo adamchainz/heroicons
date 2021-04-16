@@ -68,7 +68,7 @@ The tags take these arguments:
   You can see the icon names on the `heroicons.com grid <https://heroicons.com/>`__.
 
 * ``size``, keyword: an integer that will be used for the width and height attributes of the output ``<svg>`` tag.
-  Defaults to the icons’s designed sizes: ``24`` for outline and ``20`` for solid.
+  Defaults to the icons’ designed sizes: ``24`` for outline and ``20`` for solid.
 
 * Any number of keyword arguments.
   These will be added as HTML attributes to the output ``<svg>`` tag.
@@ -102,13 +102,13 @@ Jinja templates
        )
 
 Now in your templates you can call those two functions, which render ``<svg>`` icons corresponding to the two icon styles in the set.
-The functinons take these arguments:
+The functions take these arguments:
 
 * ``name``, positional: the name of the icon to use.
   You can see the icon names on the `heroicons.com grid <https://heroicons.com/>`__.
 
 * ``size``, keyword: an integer that will be used for the width and height attributes of the output ``<svg>`` tag.
-  Defaults to the icons’s designed sizes: ``24`` for outline and ``20`` for solid.
+  Defaults to the icons’ designed sizes: ``24`` for outline and ``20`` for solid.
 
 * Any number of keyword arguments.
   These will be added as HTML attributes to the output ``<svg>`` tag.
