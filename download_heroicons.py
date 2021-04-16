@@ -6,7 +6,7 @@ import argparse
 import os
 import sys
 from io import BytesIO
-from zipfile import ZipFile, ZIP_DEFLATED
+from zipfile import ZIP_DEFLATED, ZipFile
 
 import requests
 

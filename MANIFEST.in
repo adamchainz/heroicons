@@ -8,6 +8,7 @@ include README.rst
 include src/heroicons/heroicons.zip
 exclude .editorconfig
 exclude .pre-commit-config.yaml
+exclude download_heroicons.py
 include pyproject.toml
 exclude pytest.ini
 exclude tox.ini
