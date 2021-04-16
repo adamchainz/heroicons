@@ -41,5 +41,4 @@ jobs:
     - name: Upload coverage
       run: |
         coverage combine
-        coverage report
         codecov
