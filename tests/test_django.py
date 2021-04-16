@@ -37,20 +37,20 @@ def test_success_outline_complete():
     template = Template(
         "{% load heroicons %}"
         + '{% heroicon_outline "academic-cap" size=48 class="h-4 w-4" '
-        + 'data_controller="academia" %}'
+        + 'data_test="a < 2" %}'
     )
 
     result = template.render(Context())
 
     assert result.startswith(
-        '<svg width="48" height="48" class="h-4 w-4" data-controller="academia" '
+        '<svg width="48" height="48" class="h-4 w-4" data-test="a &lt; 2" '
         + 'fill="none" viewBox="0 0 24 24" stroke="currentColor">'
     )
     assert "<path" in result
     assert result.endswith("</svg>\n")
 
 
-def test_success_solid_complete():
+def test_success_solid():
     template = Template(
         "{% load heroicons %}"
         + '{% heroicon_solid "academic-cap" size=40 class="h-4 w-4 inline" %}'

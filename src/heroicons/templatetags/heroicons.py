@@ -1,7 +1,5 @@
-from __future__ import annotations
-
 from django import template
-from django.utils.html import format_html, mark_safe
+from django.utils.html import format_html
 
 import heroicons
 
@@ -24,6 +22,12 @@ def _heroicon(style, name, size, **kwargs):
     if kwargs:
         start += " ".join(f'{name.replace("_", "-")}="{{}}"' for name in kwargs)
         start += " "
-    start = format_html(start, size, size, *kwargs.values())
+
     svg = svg.replace("<svg ", start, 1)
-    return mark_safe(svg)
+
+    # simple_tag's parsing loads passed strings as safe, but they aren't
+    # Cast the SafeString's back to normal strings the only way possible, by
+    # concatenating the empty string.
+    unsafe_values = [v + "" for v in kwargs.values()]
+
+    return format_html(svg, size, size, *unsafe_values)
