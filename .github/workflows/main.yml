@@ -33,11 +33,9 @@ jobs:
     - name: Upgrade packaging tools
       run: python -m pip install --upgrade pip setuptools virtualenv
     - name: Install dependencies
-      run: python -m pip install --upgrade codecov tox
+      run: python -m pip install --upgrade codecov tox https://github.com/adamchainz/tox-py/archive/main.tar.gz
     - name: Run tox targets for ${{ matrix.python-version }}
-      run: |
-        ENV_PREFIX=$(tr -C -d "0-9" <<< "${{ matrix.python-version }}")
-        TOXENV=$(tox --listenvs | grep "^py$ENV_PREFIX" | tr '\n' ',') python -m tox
+      run: tox --py current
     - name: Upload coverage
       run: |
         coverage combine
