@@ -61,10 +61,10 @@ Now in your templates you can load the template library with:
 This provides two tags to render ``<svg>`` icons: ``heroicon_outline`` and ``heroicon_solid``, corresponding to the two icon styles in the set.
 The tags take these arguments:
 
-* ``name``, positional: the name of the icon to use, passed positionally.
- You can see the icon names on the `heroicons.com grid <https://heroicons.com/>`__.
+* ``name``, positional: the name of the icon to use.
+  You can see the icon names on the `heroicons.com grid <https://heroicons.com/>`__.
 
-* ``size``, keyword: an integer that will be used for the width + height attributes of the output ``<svg>`` tag.
+* ``size``, keyword: an integer that will be used for the width and height attributes of the output ``<svg>`` tag.
   Defaults to the icons’s designed sizes: ``24`` for outline and ``20`` for solid.
 
 * Any number of keyword arguments.
@@ -75,4 +75,4 @@ For example, to render an outline “academic-cap” icon, at 48x48, with some e
 
 .. code-block:: django
 
-    {% heroicon_medium "academic-cap" size=48 class="h-4 w-4 inline" data-controller="academia" %}
+    {% heroicon_medium "academic-cap" size=48 class="h-4 w-4 inline" data_controller="academia" %}
