@@ -78,7 +78,7 @@ For example, to render an outline “academic-cap” icon, at 48x48, with some e
 
 .. code-block:: django
 
-    {% heroicon_medium "academic-cap" size=48 class="h-4 w-4 inline" data_controller="academia" %}
+    {% heroicon_outline "academic-cap" size=48 class="h-4 w-4 inline" data_controller="academia" %}
 
 Jinja templates
 ~~~~~~~~~~~~~~~
@@ -118,4 +118,4 @@ For example, to render an outline “academic-cap” icon, at 48x48, with some e
 
 .. code-block:: jinja
 
-    {{ heroicon_medium("academic-cap", size=48, class="h-4 w-4 inline", data_controller="academia") %}
+    {{ heroicon_outline("academic-cap", size=48, class="h-4 w-4 inline", data_controller="academia") %}
