@@ -1,4 +1,4 @@
-from jinja2 import Environment, DictLoader
+from jinja2 import DictLoader, Environment
 
 from heroicons.jinja import heroicon_outline, heroicon_solid
 
