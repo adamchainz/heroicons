@@ -1,5 +1,6 @@
 import functools
 import sys
+from contextlib import closing
 from zipfile import ZipFile
 
 if sys.version_info >= (3, 7):
@@ -15,7 +16,7 @@ class IconDoesNotExist(Exception):
 @functools.lru_cache(maxsize=128)
 def load_icon(style, name):
     zip_data = open_binary("heroicons", "heroicons.zip")
-    with ZipFile(zip_data, "r") as zip_file:
+    with closing(zip_data), ZipFile(zip_data, "r") as zip_file:
         try:
             svg_bytes = zip_file.read(f"{style}/{name}.svg")
         except KeyError:
