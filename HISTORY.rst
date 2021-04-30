@@ -2,6 +2,8 @@
 History
 =======
 
+* Fix ``ResourceWarning`` from not closing the zip file after loading an icon.
+
 1.0.2 (2021-04-22)
 ------------------
 
