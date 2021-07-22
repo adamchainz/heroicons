@@ -37,11 +37,14 @@ def main(args=None):
     with ZipFile(
         output_path, "w", compression=ZIP_DEFLATED, compresslevel=9
     ) as output_zip:
-        for name in input_zip.namelist():
+        for name in sorted(input_zip.namelist()):
             if name.startswith(input_prefix) and name.endswith(".svg"):
+                info = input_zip.getinfo(name)
                 data = input_zip.read(name)
+
                 new_name = name[len(input_prefix) :]
-                output_zip.writestr(new_name, data)
+                info.filename = new_name
+                output_zip.writestr(info, data)
                 print(new_name)
 
     print("\n✅ Written!")
