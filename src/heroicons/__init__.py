@@ -39,4 +39,6 @@ def make_icon(style, name, size, **kwargs):
     svg.attrib.update(
         {key.replace("_", "-"): str(value) for key, value in kwargs.items()}
     )
-    return ElementTree.tostring(svg, encoding="unicode")
+    string = ElementTree.tostring(svg, encoding="unicode")
+    # Inline SVG's don't need xmlns
+    return string.replace(' xmlns="http://www.w3.org/2000/svg"', "", 1)
