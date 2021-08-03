@@ -24,7 +24,7 @@ def test_success_outline_simple():
 
     result = template.render(Context())
 
-    expected_py36 = (
+    expected_py37 = (
         '<svg xmlns="http://www.w3.org/2000/svg" fill="none" height="24" '
         + 'stroke="currentColor" viewBox="0 0 24 24" width="24">\n'
         + '  <path d="M12 14l9-5-9-5-9 5 9 5z" />\n'
@@ -37,7 +37,7 @@ def test_success_outline_simple():
         + 'stroke-linejoin="round" stroke-width="2" />\n'
         + "</svg>"
     )
-    expected_py37plus = (
+    expected_py38plus = (
         '<svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" '
         + 'stroke="currentColor" width="24" height="24">\n'
         + '  <path d="M12 14l9-5-9-5-9 5 9 5z" />\n'
@@ -50,10 +50,10 @@ def test_success_outline_simple():
         + '12.078 0 01.665-6.479L12 14zm-4 6v-7.5l4-2.222" />\n'
         + "</svg>"
     )
-    if sys.version_info < (3, 7):
-        expected = expected_py36
+    if sys.version_info < (3, 8):
+        expected = expected_py37
     else:
-        expected = expected_py37plus
+        expected = expected_py38plus
     assert result == expected
 
 
@@ -66,7 +66,7 @@ def test_success_outline_complete():
 
     result = template.render(Context())
 
-    expected_py36 = (
+    expected_py37 = (
         '<svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4" data-test="a &lt; 2" '
         + 'fill="none" height="48" stroke="currentColor" viewBox="0 0 24 24" '
         + 'width="48">\n'
@@ -80,7 +80,7 @@ def test_success_outline_complete():
         + 'stroke-linejoin="round" stroke-width="2" />\n'
         + "</svg>"
     )
-    expected_py37plus = (
+    expected_py38plus = (
         '<svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" '
         + 'stroke="currentColor" width="48" height="48" class="h-4 w-4" data-test="a '
         + '&lt; 2">\n'
@@ -94,10 +94,10 @@ def test_success_outline_complete():
         + '12.078 0 01.665-6.479L12 14zm-4 6v-7.5l4-2.222" />\n'
         + "</svg>"
     )
-    if sys.version_info < (3, 7):
-        expected = expected_py36
+    if sys.version_info < (3, 8):
+        expected = expected_py37
     else:
-        expected = expected_py37plus
+        expected = expected_py38plus
     assert result == expected
 
 
@@ -109,7 +109,7 @@ def test_success_solid():
 
     result = template.render(Context())
 
-    expected_py36 = (
+    expected_py37 = (
         '<svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4 inline" '
         + 'fill="currentColor" height="40" viewBox="0 0 20 20" width="40">\n'
         + '  <path d="M10.394 2.08a1 1 0 00-.788 0l-7 3a1 1 0 000 1.84L5.25 '
@@ -122,7 +122,7 @@ def test_success_solid():
         + '00-2-.712V17a1 1 0 001 1z" />\n'
         + "</svg>"
     )
-    expected_py37plus = (
+    expected_py38plus = (
         '<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" '
         + 'fill="currentColor" width="40" height="40" class="h-4 w-4 inline">\n'
         + '  <path d="M10.394 2.08a1 1 0 00-.788 0l-7 3a1 1 0 000 1.84L5.25 '
@@ -135,8 +135,8 @@ def test_success_solid():
         + '00-2-.712V17a1 1 0 001 1z" />\n'
         + "</svg>"
     )
-    if sys.version_info < (3, 7):
-        expected = expected_py36
+    if sys.version_info < (3, 8):
+        expected = expected_py37
     else:
-        expected = expected_py37plus
+        expected = expected_py38plus
     assert result == expected
