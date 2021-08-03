@@ -1,6 +1,7 @@
 import functools
 import sys
 from contextlib import closing
+from copy import deepcopy
 from xml.etree import ElementTree
 from zipfile import ZipFile
 
@@ -30,3 +31,12 @@ def load_icon(style, name):
             )
 
         return ElementTree.fromstring(svg_bytes.decode())
+
+
+def make_icon(style, name, size, **kwargs):
+    svg = deepcopy(load_icon(style, name))
+    svg.attrib["width"] = svg.attrib["height"] = str(size)
+    svg.attrib.update(
+        {key.replace("_", "-"): str(value) for key, value in kwargs.items()}
+    )
+    return ElementTree.tostring(svg, encoding="unicode")
