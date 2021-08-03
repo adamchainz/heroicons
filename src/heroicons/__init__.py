@@ -1,6 +1,7 @@
 import functools
 import sys
 from contextlib import closing
+from xml.etree import ElementTree
 from zipfile import ZipFile
 
 if sys.version_info >= (3, 7):
@@ -11,6 +12,10 @@ else:
 
 class IconDoesNotExist(Exception):
     pass
+
+
+# Prevent 'ns0' prefix on SVG element and attributes
+ElementTree.register_namespace("", "http://www.w3.org/2000/svg")
 
 
 @functools.lru_cache(maxsize=128)
@@ -24,5 +29,4 @@ def load_icon(style, name):
                 f"The icon {name!r} with style {style!r} does not exist."
             )
 
-        # Inline SVG's don't need xmlns
-        return svg_bytes.decode().replace(' xmlns="http://www.w3.org/2000/svg"', "", 1)
+        return ElementTree.fromstring(svg_bytes.decode())

@@ -1,3 +1,6 @@
+from copy import deepcopy
+from xml.etree import ElementTree
+
 from markupsafe import Markup
 
 import heroicons
@@ -12,11 +15,9 @@ def heroicon_solid(name, *, size=20, **kwargs):
 
 
 def _heroicon(style, name, size, **kwargs):
-    svg = heroicons.load_icon(style, name)
-    start = '<svg width="{}" height="{}" '
-    if kwargs:
-        start += " ".join(f'{name.replace("_", "-")}="{{}}"' for name in kwargs)
-        start += " "
-
-    svg = Markup(svg.replace("<svg ", start, 1))
-    return svg.format(size, size, *kwargs.values())
+    svg = deepcopy(heroicons.load_icon(style, name))
+    svg.attrib["width"] = svg.attrib["height"] = str(size)
+    svg.attrib.update(
+        {key.replace("_", "-"): str(value) for key, value in kwargs.items()}
+    )
+    return Markup(ElementTree.tostring(svg, encoding="unicode"))
