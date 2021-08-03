@@ -25,7 +25,7 @@ def test_success_outline_simple():
     result = template.render(Context())
 
     expected_py37 = (
-        '<svg xmlns="http://www.w3.org/2000/svg" fill="none" height="24" '
+        '<svg fill="none" height="24" '
         + 'stroke="currentColor" viewBox="0 0 24 24" width="24">\n'
         + '  <path d="M12 14l9-5-9-5-9 5 9 5z" />\n'
         + '  <path d="M12 14l6.16-3.422a12.083 12.083 0 01.665 6.479A11.952 11.952 0 '
@@ -38,7 +38,7 @@ def test_success_outline_simple():
         + "</svg>"
     )
     expected_py38plus = (
-        '<svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" '
+        '<svg fill="none" viewBox="0 0 24 24" '
         + 'stroke="currentColor" width="24" height="24">\n'
         + '  <path d="M12 14l9-5-9-5-9 5 9 5z" />\n'
         + '  <path d="M12 14l6.16-3.422a12.083 12.083 0 01.665 6.479A11.952 11.952 0 '
@@ -67,7 +67,7 @@ def test_success_outline_complete():
     result = template.render(Context())
 
     expected_py37 = (
-        '<svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4" data-test="a &lt; 2" '
+        '<svg class="h-4 w-4" data-test="a &lt; 2" '
         + 'fill="none" height="48" stroke="currentColor" viewBox="0 0 24 24" '
         + 'width="48">\n'
         + '  <path d="M12 14l9-5-9-5-9 5 9 5z" />\n'
@@ -81,7 +81,7 @@ def test_success_outline_complete():
         + "</svg>"
     )
     expected_py38plus = (
-        '<svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" '
+        '<svg fill="none" viewBox="0 0 24 24" '
         + 'stroke="currentColor" width="48" height="48" class="h-4 w-4" data-test="a '
         + '&lt; 2">\n'
         + '  <path d="M12 14l9-5-9-5-9 5 9 5z" />\n'
@@ -110,7 +110,7 @@ def test_success_solid():
     result = template.render(Context())
 
     expected_py37 = (
-        '<svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4 inline" '
+        '<svg class="h-4 w-4 inline" '
         + 'fill="currentColor" height="40" viewBox="0 0 20 20" width="40">\n'
         + '  <path d="M10.394 2.08a1 1 0 00-.788 0l-7 3a1 1 0 000 1.84L5.25 '
         + "8.051a.999.999 0 01.356-.257l4-1.714a1 1 0 11.788 1.838L7.667 "
@@ -123,7 +123,7 @@ def test_success_solid():
         + "</svg>"
     )
     expected_py38plus = (
-        '<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" '
+        '<svg viewBox="0 0 20 20" '
         + 'fill="currentColor" width="40" height="40" class="h-4 w-4 inline">\n'
         + '  <path d="M10.394 2.08a1 1 0 00-.788 0l-7 3a1 1 0 000 1.84L5.25 '
         + "8.051a.999.999 0 01.356-.257l4-1.714a1 1 0 11.788 1.838L7.667 "
