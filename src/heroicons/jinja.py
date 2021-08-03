@@ -20,4 +20,4 @@ def _heroicon(style, name, size, **kwargs):
     svg.attrib.update(
         {key.replace("_", "-"): str(value) for key, value in kwargs.items()}
     )
-    return Markup(ElementTree.tostring(svg, xml_declaration=False, encoding="unicode"))
+    return Markup(ElementTree.tostring(svg, encoding="unicode"))
