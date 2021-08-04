@@ -37,7 +37,7 @@ Check out my book `Speed Up Your Django Tests <https://gumroad.com/l/suydt>`__ w
 Usage
 -----
 
-The ``heroicons`` package supports both Django templates and Jinja2 templates.
+The ``heroicons`` package supports both Django templates and Jinja templates.
 Follow the appropriate guide below.
 
 Django templates
@@ -61,7 +61,7 @@ Now in your templates you can load the template library with:
 
     {% load heroicons %}
 
-This provides two tags to render ``<svg>`` icons: ``heroicon_outline`` and ``heroicon_solid``, corresponding to the two icon styles in the set.
+This provides two tags to render SVG icons: ``heroicon_outline`` and ``heroicon_solid``, corresponding to the two icon styles in the set.
 The tags take these arguments:
 
 * ``name``, positional: the name of the icon to use.
@@ -71,14 +71,36 @@ The tags take these arguments:
   Defaults to the icons’ designed sizes: ``24`` for outline and ``20`` for solid.
 
 * Any number of keyword arguments.
-  These will be added as HTML attributes to the output ``<svg>`` tag.
+  These will be added as attributes in the output HTML.
   Underscores in attribute names will be replaced with dashes, allowing you to define e.g. ``data-`` attributes.
 
-For example, to render an outline “academic-cap” icon, at 48x48, with some extra CSS classes and a data attribute “controller”, you would write:
+  Most attributes will be added to the ``<svg>`` tag containing the icon, but these attributes will be attached to the inner ``<path>`` tags instead:
+
+  * ``stroke-linecap``
+  * ``stroke-linejoin``
+  * ``stroke-width``
+  * ``vector-effect``
+
+Examples
+^^^^^^^^
+
+An outline “academic-cap” icon:
 
 .. code-block:: django
 
-    {% heroicon_outline "academic-cap" size=48 class="h-4 w-4 inline" data_controller="academia" %}
+    {% heroicon_outline "academic-cap" %}
+
+The same icon, solid, at 40x40 pixels, with some CSS classes:
+
+.. code-block:: django
+
+    {% heroicon_outline "academic-cap" size=40 class="h-4 w-4 inline" %}
+
+That icon again, but with the paths changed to a narrower stroke width, and a "data-controller" attribute declared:
+
+.. code-block:: django
+
+    {% heroicon_outline "academic-cap" stroke_width=1 data_controller="academia" %}
 
 Jinja templates
 ~~~~~~~~~~~~~~~
@@ -111,11 +133,33 @@ The functions take these arguments:
   Defaults to the icons’ designed sizes: ``24`` for outline and ``20`` for solid.
 
 * Any number of keyword arguments.
-  These will be added as HTML attributes to the output ``<svg>`` tag.
+  These will be added as HTML attributes to the output HTML.
   Underscores in attribute names will be replaced with dashes, allowing you to define e.g. ``data-`` attributes.
 
-For example, to render an outline “academic-cap” icon, at 48x48, with some extra CSS classes and a data attribute “controller”, you would write:
+  Most attributes will be added to the ``<svg>`` tag containing the icon, but these attributes will be attached to the inner ``<path>`` tags instead:
+
+  * ``stroke-linecap``
+  * ``stroke-linejoin``
+  * ``stroke-width``
+  * ``vector-effect``
+
+Examples
+^^^^^^^^
+
+An outline “academic-cap” icon:
 
 .. code-block:: jinja
 
-    {{ heroicon_outline("academic-cap", size=48, class="h-4 w-4 inline", data_controller="academia") %}
+    {{ heroicon_outline("academic-cap") }}
+
+The same icon, solid, at 40x40 pixels, with some CSS classes:
+
+.. code-block:: jinja
+
+    {{ heroicon_solid("academic-cap", size=40, class="h-4 w-4 inline") %}
+
+That icon again, but with the paths changed to a narrower stroke width, and a "data-controller" attribute declared:
+
+.. code-block:: jinja
+
+    {{ heroicon_outline("academic-cap", stroke_width=1, data_controller="academia") %}

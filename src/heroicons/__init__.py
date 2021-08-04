@@ -37,12 +37,34 @@ def load_icon(style, name):
         return svg
 
 
+PATH_ATTR_NAMES = frozenset(
+    {
+        "stroke-linecap",
+        "stroke-linejoin",
+        "stroke-width",
+        "vector-effect",
+    }
+)
+
+
 def make_icon(style, name, size, **kwargs):
     svg = deepcopy(load_icon(style, name))
     svg.attrib["width"] = svg.attrib["height"] = str(size)
-    svg.attrib.update(
-        {key.replace("_", "-"): str(value) for key, value in kwargs.items()}
-    )
+
+    svg_attrs = {}
+    path_attrs = {}
+    for raw_name, value in kwargs.items():
+        name = raw_name.replace("_", "-")
+        if name in PATH_ATTR_NAMES:
+            path_attrs[name] = str(value)
+        else:
+            svg_attrs[name] = str(value)
+
+    svg.attrib.update(svg_attrs)
+    if path_attrs:
+        for path in svg.findall("path"):
+            path.attrib.update(path_attrs)
+
     string = ElementTree.tostring(svg, encoding="unicode")
     # Inline SVG's don't need xmlns
     return string.replace(' xmlns="http://www.w3.org/2000/svg"', "", 1)

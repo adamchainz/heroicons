@@ -55,6 +55,45 @@ def test_success_outline_simple():
     assert result == expected
 
 
+def test_success_outline_changed_path_attr():
+    env = make_environment('{{ heroicon_outline("academic-cap", stroke_width=1) }}')
+    template = env.get_template("index")
+
+    result = template.render()
+
+    expected_py37 = (
+        '<svg fill="none" height="24" stroke="currentColor" viewBox="0 0 24 24" '
+        + 'width="24">\n'
+        + '  <path d="M12 14l9-5-9-5-9 5 9 5z" stroke-width="1" />\n'
+        + '  <path d="M12 14l6.16-3.422a12.083 12.083 0 01.665 6.479A11.952 11.952 0 '
+        + "0012 20.055a11.952 11.952 0 00-6.824-2.998 12.078 12.078 0 01.665-6.479L12 "
+        + '14z" stroke-width="1" />\n'
+        + '  <path d="M12 14l9-5-9-5-9 5 9 5zm0 0l6.16-3.422a12.083 12.083 0 01.665 '
+        + "6.479A11.952 11.952 0 0012 20.055a11.952 11.952 0 00-6.824-2.998 12.078 "
+        + '12.078 0 01.665-6.479L12 14zm-4 6v-7.5l4-2.222" stroke-linecap="round" '
+        + 'stroke-linejoin="round" stroke-width="1" />\n'
+        + "</svg>"
+    )
+    expected_py38plus = (
+        '<svg fill="none" viewBox="0 0 24 24" '
+        + 'stroke="currentColor" width="24" height="24">\n'
+        + '  <path d="M12 14l9-5-9-5-9 5 9 5z" stroke-width="1" />\n'
+        + '  <path d="M12 14l6.16-3.422a12.083 12.083 0 01.665 6.479A11.952 11.952 0 '
+        + "0012 20.055a11.952 11.952 0 00-6.824-2.998 12.078 12.078 0 01.665-6.479L12 "
+        + '14z" stroke-width="1" />\n'
+        + '  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1" '
+        + 'd="M12 14l9-5-9-5-9 5 9 5zm0 0l6.16-3.422a12.083 12.083 0 01.665 '
+        + "6.479A11.952 11.952 0 0012 20.055a11.952 11.952 0 00-6.824-2.998 12.078 "
+        + '12.078 0 01.665-6.479L12 14zm-4 6v-7.5l4-2.222" />\n'
+        + "</svg>"
+    )
+    if sys.version_info < (3, 8):
+        expected = expected_py37
+    else:
+        expected = expected_py38plus
+    assert result == expected
+
+
 def test_success_outline_complete():
     env = make_environment(
         '{{ heroicon_outline("academic-cap", size=48, class="h-4 w-4", '
