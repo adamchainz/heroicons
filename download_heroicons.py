@@ -6,16 +6,17 @@ import argparse
 import os
 import sys
 from io import BytesIO
+from typing import List, Optional
 from zipfile import ZIP_DEFLATED, ZipFile
 
 import requests
 
 
-def main(args=None):
+def main(argv: Optional[List[str]] = None) -> int:
     parser = argparse.ArgumentParser()
     parser.add_argument("version", help="e.g. 1.0.1")
-    args = parser.parse_args(args)
-    version = args.version
+    args = parser.parse_args(argv)
+    version: str = args.version
 
     zip_url = (
         f"https://github.com/tailwindlabs/heroicons/archive/refs/tags/v{version}.zip"

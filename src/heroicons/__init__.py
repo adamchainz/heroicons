@@ -18,7 +18,7 @@ class IconDoesNotExist(Exception):
 
 
 @functools.lru_cache(maxsize=128)
-def load_icon(style, name):
+def load_icon(style: str, name: str) -> ElementTree.Element:
     zip_data = open_binary("heroicons", "heroicons.zip")
     with closing(zip_data), ZipFile(zip_data, "r") as zip_file:
         try:
@@ -33,7 +33,7 @@ def load_icon(style, name):
             # Prevent output using the 'ns0' prefix for tags
             node.tag = ElementTree.QName(
                 str_removeprefix(node.tag, "{http://www.w3.org/2000/svg}")
-            )
+            )  # type: ignore[assignment]  # unclear if really allowed
         return svg
 
 
@@ -47,7 +47,7 @@ PATH_ATTR_NAMES = frozenset(
 )
 
 
-def make_icon(style, name, size, **kwargs):
+def make_icon(style: str, name: str, size: int, **kwargs: object) -> str:
     svg = deepcopy(load_icon(style, name))
     svg.attrib["width"] = svg.attrib["height"] = str(size)
 

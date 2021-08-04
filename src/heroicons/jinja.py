@@ -3,13 +3,13 @@ from markupsafe import Markup
 import heroicons
 
 
-def heroicon_outline(name, *, size=24, **kwargs):
+def heroicon_outline(name: str, *, size: int = 24, **kwargs: object) -> str:
     return _heroicon("outline", name, size, **kwargs)
 
 
-def heroicon_solid(name, *, size=20, **kwargs):
+def heroicon_solid(name: str, *, size: int = 20, **kwargs: object) -> str:
     return _heroicon("solid", name, size, **kwargs)
 
 
-def _heroicon(style, name, size, **kwargs):
+def _heroicon(style: str, name: str, size: int, **kwargs: object) -> str:
     return Markup(heroicons.make_icon(style, name, size, **kwargs))
