@@ -2,6 +2,9 @@
 History
 =======
 
+1.1.0 (2021-08-04)
+------------------
+
 * Allow customizing icons by pushing some attributes (``stroke-linecap``, ``stroke-linejoin``, ``stroke-width``, ``vector-effect``) onto the ``<path>`` elements.
 * Fix a bug where non-string values would crash in Django templates.
 * Upgrade embedded icon set to version 1.0.3.
