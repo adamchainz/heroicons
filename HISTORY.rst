@@ -4,6 +4,8 @@ History
 
 * Allow customizing icons by pushing some attributes (``stroke-linecap``, ``stroke-linejoin``, ``stroke-width``, ``vector-effect``) onto the ``<path>`` elements.
 * Fix a bug where non-string values would crash in Django templates.
+* Upgrade embedded icon set to version 1.0.3.
+  Check out the `changes in the upstream repo <https://github.com/tailwindlabs/heroicons/compare/v1.0.2...v1.0.3>`__.
 
 1.0.4 (2021-07-22)
 ------------------
