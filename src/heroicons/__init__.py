@@ -5,6 +5,8 @@ from copy import deepcopy
 from xml.etree import ElementTree
 from zipfile import ZipFile
 
+from heroicons._compat import str_removeprefix
+
 if sys.version_info >= (3, 7):
     from importlib.resources import open_binary
 else:
@@ -13,10 +15,6 @@ else:
 
 class IconDoesNotExist(Exception):
     pass
-
-
-# Prevent 'ns0' prefix on SVG element and attributes
-ElementTree.register_namespace("", "http://www.w3.org/2000/svg")
 
 
 @functools.lru_cache(maxsize=128)
@@ -30,7 +28,13 @@ def load_icon(style, name):
                 f"The icon {name!r} with style {style!r} does not exist."
             )
 
-        return ElementTree.fromstring(svg_bytes.decode())
+        svg = ElementTree.fromstring(svg_bytes.decode())
+        for node in svg.iter():
+            # Prevent output using the 'ns0' prefix for tags
+            node.tag = ElementTree.QName(
+                str_removeprefix(node.tag, "{http://www.w3.org/2000/svg}")
+            )
+        return svg
 
 
 def make_icon(style, name, size, **kwargs):

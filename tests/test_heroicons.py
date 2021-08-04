@@ -8,13 +8,13 @@ import heroicons
 def test_success_outline():
     svg = heroicons.load_icon("outline", "academic-cap")
     assert isinstance(svg, ElementTree.Element)
-    assert svg.tag == "{http://www.w3.org/2000/svg}svg"
+    assert svg.tag == ElementTree.QName("svg")
 
 
 def test_success_solid():
     svg = heroicons.load_icon("solid", "academic-cap")
     assert isinstance(svg, ElementTree.Element)
-    assert svg.tag == "{http://www.w3.org/2000/svg}svg"
+    assert svg.tag == ElementTree.QName("svg")
 
 
 def test_fail_unknown():
