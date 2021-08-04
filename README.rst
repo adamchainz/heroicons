@@ -51,7 +51,7 @@ Django templates
 
        INSTALLED_APPS = [
            ...,
-           'heroicons',
+           "heroicons",
            ...,
        ]
 
