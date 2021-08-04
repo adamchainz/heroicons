@@ -18,7 +18,7 @@ class IconDoesNotExist(Exception):
 
 
 @functools.lru_cache(maxsize=128)
-def load_icon(style: str, name: str) -> ElementTree.Element:
+def _load_icon(style: str, name: str) -> ElementTree.Element:
     zip_data = open_binary("heroicons", "heroicons.zip")
     with closing(zip_data), ZipFile(zip_data, "r") as zip_file:
         try:
@@ -37,7 +37,7 @@ def load_icon(style: str, name: str) -> ElementTree.Element:
         return svg
 
 
-PATH_ATTR_NAMES = frozenset(
+_PATH_ATTR_NAMES = frozenset(
     {
         "stroke-linecap",
         "stroke-linejoin",
@@ -47,15 +47,15 @@ PATH_ATTR_NAMES = frozenset(
 )
 
 
-def make_icon(style: str, name: str, size: int, **kwargs: object) -> str:
-    svg = deepcopy(load_icon(style, name))
+def _render_icon(style: str, name: str, size: int, **kwargs: object) -> str:
+    svg = deepcopy(_load_icon(style, name))
     svg.attrib["width"] = svg.attrib["height"] = str(size)
 
     svg_attrs = {}
     path_attrs = {}
     for raw_name, value in kwargs.items():
         name = raw_name.replace("_", "-")
-        if name in PATH_ATTR_NAMES:
+        if name in _PATH_ATTR_NAMES:
             path_attrs[name] = str(value)
         else:
             svg_attrs[name] = str(value)
