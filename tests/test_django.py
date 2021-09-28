@@ -15,6 +15,7 @@ settings.configure(
         },
     ],
     INSTALLED_APPS=["heroicons"],
+    USE_TZ=True,
 )
 urlpatterns: List[Any] = []
 django.setup()
