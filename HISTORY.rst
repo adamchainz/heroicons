@@ -2,6 +2,9 @@
 History
 =======
 
+1.4.0 (2021-10-23)
+------------------
+
 * On Python < 3.7, depend on importlib-resources >= 1.3.
 
 * Upgrade embedded icon set to version 1.0.5.
