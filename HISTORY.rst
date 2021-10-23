@@ -4,6 +4,9 @@ History
 
 * On Python < 3.7, depend on importlib-resources >= 1.3.
 
+* Upgrade embedded icon set to version 1.0.5.
+  Check out the `changes in the upstream repo <https://github.com/tailwindlabs/heroicons/commits/master>`__.
+
 1.3.0 (2021-10-05)
 ------------------
 

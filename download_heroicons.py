@@ -14,13 +14,11 @@ import requests
 
 def main(argv: Optional[List[str]] = None) -> int:
     parser = argparse.ArgumentParser()
-    parser.add_argument("version", help="e.g. 1.0.1")
+    parser.add_argument("version", help="Git SHA")
     args = parser.parse_args(argv)
     version: str = args.version
 
-    zip_url = (
-        f"https://github.com/tailwindlabs/heroicons/archive/refs/tags/v{version}.zip"
-    )
+    zip_url = f"https://github.com/tailwindlabs/heroicons/archive/{version}.zip"
     response = requests.get(zip_url)
     if response.status_code != 200:
         print(f"Got status code {response.status_code} for {zip_url}", file=sys.stderr)
