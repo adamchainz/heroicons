@@ -24,5 +24,5 @@ if sys.version_info >= (3, 9) or sys.version_info < (3, 7):
         return (files(pkg) / filename).open("rb")
 
 
-elif sys.version_info >= (3, 7):
+else:
     from importlib.resources import open_binary  # noqa: F401
