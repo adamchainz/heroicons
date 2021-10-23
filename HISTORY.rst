@@ -2,6 +2,8 @@
 History
 =======
 
+* On Python < 3.7, depend on importlib-resources >= 1.3.
+
 1.3.0 (2021-10-05)
 ------------------
 
