@@ -1,16 +1,10 @@
 import functools
-import sys
 from contextlib import closing
 from copy import deepcopy
 from xml.etree import ElementTree
 from zipfile import ZipFile
 
-from heroicons._compat import str_removeprefix
-
-if sys.version_info >= (3, 7):
-    from importlib.resources import open_binary
-else:
-    from importlib_resources import open_binary
+from heroicons._compat import open_binary, str_removeprefix
 
 
 class IconDoesNotExist(Exception):

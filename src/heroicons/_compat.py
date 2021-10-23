@@ -1,4 +1,5 @@
 import sys
+from typing import IO
 
 if sys.version_info < (3, 9):
 
@@ -11,3 +12,17 @@ if sys.version_info < (3, 9):
 
 else:
     str_removeprefix = str.removeprefix
+
+
+if sys.version_info >= (3, 9) or sys.version_info < (3, 7):
+    if sys.version_info >= (3, 9):
+        from importlib.resources import files
+    else:
+        from importlib_resources import files
+
+    def open_binary(pkg: str, filename: str) -> IO[bytes]:
+        return (files(pkg) / filename).open("rb")
+
+
+elif sys.version_info >= (3, 7):
+    from importlib.resources import open_binary  # noqa: F401
