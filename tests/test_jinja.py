@@ -23,7 +23,7 @@ def test_success_outline_simple():
     result = template.render()
 
     expected_py37 = (
-        '<svg fill="none" height="24" '
+        '<svg aria-hidden="true" fill="none" height="24" '
         + 'stroke="currentColor" viewBox="0 0 24 24" width="24">\n'
         + '  <path d="M12 14l9-5-9-5-9 5 9 5z" />\n'
         + '  <path d="M12 14l6.16-3.422a12.083 12.083 0 01.665 6.479A11.952 11.952 0 '
@@ -37,7 +37,7 @@ def test_success_outline_simple():
     )
     expected_py38plus = (
         '<svg fill="none" viewBox="0 0 24 24" '
-        + 'stroke="currentColor" width="24" height="24">\n'
+        + 'stroke="currentColor" aria-hidden="true" width="24" height="24">\n'
         + '  <path d="M12 14l9-5-9-5-9 5 9 5z" />\n'
         + '  <path d="M12 14l6.16-3.422a12.083 12.083 0 01.665 6.479A11.952 11.952 0 '
         + "0012 20.055a11.952 11.952 0 00-6.824-2.998 12.078 12.078 0 01.665-6.479L12 "
@@ -62,8 +62,8 @@ def test_success_outline_changed_path_attr():
     result = template.render()
 
     expected_py37 = (
-        '<svg fill="none" height="24" stroke="currentColor" viewBox="0 0 24 24" '
-        + 'width="24">\n'
+        '<svg aria-hidden="true" fill="none" height="24" stroke="currentColor" '
+        + 'viewBox="0 0 24 24" width="24">\n'
         + '  <path d="M12 14l9-5-9-5-9 5 9 5z" stroke-width="1" />\n'
         + '  <path d="M12 14l6.16-3.422a12.083 12.083 0 01.665 6.479A11.952 11.952 0 '
         + "0012 20.055a11.952 11.952 0 00-6.824-2.998 12.078 12.078 0 01.665-6.479L12 "
@@ -76,7 +76,7 @@ def test_success_outline_changed_path_attr():
     )
     expected_py38plus = (
         '<svg fill="none" viewBox="0 0 24 24" '
-        + 'stroke="currentColor" width="24" height="24">\n'
+        + 'stroke="currentColor" aria-hidden="true" width="24" height="24">\n'
         + '  <path d="M12 14l9-5-9-5-9 5 9 5z" stroke-width="1" />\n'
         + '  <path d="M12 14l6.16-3.422a12.083 12.083 0 01.665 6.479A11.952 11.952 0 '
         + "0012 20.055a11.952 11.952 0 00-6.824-2.998 12.078 12.078 0 01.665-6.479L12 "
@@ -104,7 +104,7 @@ def test_success_outline_complete():
     result = str(template.render())
 
     expected_py37 = (
-        '<svg class="h-4 w-4" data-test="a &lt; 2" '
+        '<svg aria-hidden="true" class="h-4 w-4" data-test="a &lt; 2" '
         + 'fill="none" height="48" stroke="currentColor" viewBox="0 0 24 24" '
         + 'width="48">\n'
         + '  <path d="M12 14l9-5-9-5-9 5 9 5z" />\n'
@@ -119,7 +119,8 @@ def test_success_outline_complete():
     )
     expected_py38plus = (
         '<svg fill="none" viewBox="0 0 24 24" '
-        + 'stroke="currentColor" width="48" height="48" class="h-4 w-4" data-test="a '
+        + 'stroke="currentColor" aria-hidden="true" '
+        + 'width="48" height="48" class="h-4 w-4" data-test="a '
         + '&lt; 2">\n'
         + '  <path d="M12 14l9-5-9-5-9 5 9 5z" />\n'
         + '  <path d="M12 14l6.16-3.422a12.083 12.083 0 01.665 6.479A11.952 11.952 0 '
@@ -147,7 +148,7 @@ def test_success_solid():
     result = template.render()
 
     expected_py37 = (
-        '<svg class="h-4 w-4 inline" '
+        '<svg aria-hidden="true" class="h-4 w-4 inline" '
         + 'fill="currentColor" height="40" viewBox="0 0 20 20" width="40">\n'
         + '  <path d="M10.394 2.08a1 1 0 00-.788 0l-7 3a1 1 0 000 1.84L5.25 '
         + "8.051a.999.999 0 01.356-.257l4-1.714a1 1 0 11.788 1.838L7.667 "
@@ -161,7 +162,8 @@ def test_success_solid():
     )
     expected_py38plus = (
         '<svg viewBox="0 0 20 20" '
-        + 'fill="currentColor" width="40" height="40" class="h-4 w-4 inline">\n'
+        + 'fill="currentColor" aria-hidden="true" '
+        + 'width="40" height="40" class="h-4 w-4 inline">\n'
         + '  <path d="M10.394 2.08a1 1 0 00-.788 0l-7 3a1 1 0 000 1.84L5.25 '
         + "8.051a.999.999 0 01.356-.257l4-1.714a1 1 0 11.788 1.838L7.667 "
         + "9.088l1.94.831a1 1 0 00.787 0l7-3a1 1 0 000-1.838l-7-3zM3.31 9.397L5 "
