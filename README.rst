@@ -5,8 +5,8 @@ heroicons
 .. image:: https://img.shields.io/github/workflow/status/adamchainz/heroicons/CI/main?style=for-the-badge
    :target: https://github.com/adamchainz/heroicons/actions?workflow=CI
 
-.. image:: https://img.shields.io/codecov/c/github/adamchainz/heroicons/main?style=for-the-badge
-   :target: https://app.codecov.io/gh/adamchainz/heroicons
+.. image:: https://img.shields.io/badge/Coverage-100%25-success?style=for-the-badge
+   :target: https://github.com/adamchainz/heroicons/actions?workflow=CI
 
 .. image:: https://img.shields.io/pypi/v/heroicons.svg?style=for-the-badge
    :target: https://pypi.org/project/heroicons/
