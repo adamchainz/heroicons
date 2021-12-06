@@ -9,7 +9,6 @@ if sys.version_info < (3, 9):
         else:  # pragma: no cover
             return self[:]
 
-
 else:
     str_removeprefix = str.removeprefix
 
@@ -22,7 +21,6 @@ if sys.version_info >= (3, 9) or sys.version_info < (3, 7):
 
     def open_binary(pkg: str, filename: str) -> IO[bytes]:
         return (files(pkg) / filename).open("rb")
-
 
 else:
     from importlib.resources import open_binary  # noqa: F401
