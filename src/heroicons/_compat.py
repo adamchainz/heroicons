@@ -13,11 +13,8 @@ else:
     str_removeprefix = str.removeprefix
 
 
-if sys.version_info >= (3, 9) or sys.version_info < (3, 7):
-    if sys.version_info >= (3, 9):
-        from importlib.resources import files
-    else:
-        from importlib_resources import files
+if sys.version_info >= (3, 9):
+    from importlib.resources import files
 
     def open_binary(pkg: str, filename: str) -> IO[bytes]:
         return (files(pkg) / filename).open("rb")
