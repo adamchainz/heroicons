@@ -2,17 +2,18 @@
 """
 Download the latest heroicons zip file and select only the optimized icons.
 """
+from __future__ import annotations
+
 import argparse
 import os
 import sys
 from io import BytesIO
-from typing import List, Optional
 from zipfile import ZIP_DEFLATED, ZipFile
 
 import requests
 
 
-def main(argv: Optional[List[str]] = None) -> int:
+def main(argv: list[str] | None = None) -> int:
     parser = argparse.ArgumentParser()
     parser.add_argument("version", help="Git SHA")
     args = parser.parse_args(argv)

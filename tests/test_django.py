@@ -1,5 +1,7 @@
+from __future__ import annotations
+
 import sys
-from typing import Any, List
+from typing import Any
 
 import django
 from django.conf import settings
@@ -16,7 +18,7 @@ settings.configure(
     ],
     INSTALLED_APPS=["heroicons"],
 )
-urlpatterns: List[Any] = []
+urlpatterns: list[Any] = []
 django.setup()
 
 
