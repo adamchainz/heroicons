@@ -1,3 +1,5 @@
+from __future__ import annotations
+
 import sys
 
 from jinja2 import DictLoader, Environment
