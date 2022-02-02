@@ -81,6 +81,8 @@ The tags take these arguments:
   * ``stroke-width``
   * ``vector-effect``
 
+Note: unlike the SVG code you can copy from `heroicons.com <https://heroicons.com/>`__, there is no default ``class``.
+
 Examples
 ^^^^^^^^
 
@@ -142,6 +144,8 @@ The functions take these arguments:
   * ``stroke-linejoin``
   * ``stroke-width``
   * ``vector-effect``
+
+Note: unlike the SVG code you can copy from `heroicons.com <https://heroicons.com/>`__, there is no default ``class``.
 
 Examples
 ^^^^^^^^
