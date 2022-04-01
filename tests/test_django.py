@@ -29,7 +29,8 @@ def test_success_outline_simple():
 
     expected_py37 = (
         '<svg aria-hidden="true" fill="none" height="24" '
-        + 'stroke="currentColor" viewBox="0 0 24 24" width="24">\n'
+        + 'stroke="currentColor" stroke-width="2" viewBox="0 0 24 24" '
+        + 'width="24">\n'
         + '  <path d="M12 14l9-5-9-5-9 5 9 5z" />\n'
         + '  <path d="M12 14l6.16-3.422a12.083 12.083 0 01.665 6.479A11.952 11.952 0 '
         + "0012 20.055a11.952 11.952 0 00-6.824-2.998 12.078 12.078 0 01.665-6.479L12 "
@@ -37,17 +38,18 @@ def test_success_outline_simple():
         + '  <path d="M12 14l9-5-9-5-9 5 9 5zm0 0l6.16-3.422a12.083 12.083 0 01.665 '
         + "6.479A11.952 11.952 0 0012 20.055a11.952 11.952 0 00-6.824-2.998 12.078 "
         + '12.078 0 01.665-6.479L12 14zm-4 6v-7.5l4-2.222" stroke-linecap="round" '
-        + 'stroke-linejoin="round" stroke-width="2" />\n'
+        + 'stroke-linejoin="round" />\n'
         + "</svg>"
     )
     expected_py38plus = (
         '<svg fill="none" viewBox="0 0 24 24" '
-        + 'stroke="currentColor" aria-hidden="true" width="24" height="24">\n'
+        + 'stroke-width="2" stroke="currentColor" aria-hidden="true" '
+        + 'width="24" height="24">\n'
         + '  <path d="M12 14l9-5-9-5-9 5 9 5z" />\n'
         + '  <path d="M12 14l6.16-3.422a12.083 12.083 0 01.665 6.479A11.952 11.952 0 '
         + "0012 20.055a11.952 11.952 0 00-6.824-2.998 12.078 12.078 0 01.665-6.479L12 "
         + '14z" />\n'
-        + '  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" '
+        + '  <path stroke-linecap="round" stroke-linejoin="round" '
         + 'd="M12 14l9-5-9-5-9 5 9 5zm0 0l6.16-3.422a12.083 12.083 0 01.665 '
         + "6.479A11.952 11.952 0 0012 20.055a11.952 11.952 0 00-6.824-2.998 12.078 "
         + '12.078 0 01.665-6.479L12 14zm-4 6v-7.5l4-2.222" />\n'
@@ -62,32 +64,34 @@ def test_success_outline_simple():
 
 def test_success_outline_path_attr():
     template = Template(
-        '{% load heroicons %}{% heroicon_outline "academic-cap" stroke_width=1 %}'
+        "{% load heroicons %}"
+        + '{% heroicon_outline "academic-cap" stroke_linecap="butt" %}'
     )
 
     result = template.render(Context())
 
     expected_py37 = (
         '<svg aria-hidden="true" fill="none" height="24" '
-        + 'stroke="currentColor" viewBox="0 0 24 24" width="24">\n'
-        + '  <path d="M12 14l9-5-9-5-9 5 9 5z" stroke-width="1" />\n'
+        + 'stroke="currentColor" stroke-width="2" viewBox="0 0 24 24" width="24">\n'
+        + '  <path d="M12 14l9-5-9-5-9 5 9 5z" stroke-linecap="butt" />\n'
         + '  <path d="M12 14l6.16-3.422a12.083 12.083 0 01.665 6.479A11.952 11.952 0 '
         + "0012 20.055a11.952 11.952 0 00-6.824-2.998 12.078 12.078 0 01.665-6.479L12 "
-        + '14z" stroke-width="1" />\n'
+        + '14z" stroke-linecap="butt" />\n'
         + '  <path d="M12 14l9-5-9-5-9 5 9 5zm0 0l6.16-3.422a12.083 12.083 0 01.665 '
         + "6.479A11.952 11.952 0 0012 20.055a11.952 11.952 0 00-6.824-2.998 12.078 "
-        + '12.078 0 01.665-6.479L12 14zm-4 6v-7.5l4-2.222" stroke-linecap="round" '
-        + 'stroke-linejoin="round" stroke-width="1" />\n'
+        + '12.078 0 01.665-6.479L12 14zm-4 6v-7.5l4-2.222" stroke-linecap="butt" '
+        + 'stroke-linejoin="round" />\n'
         + "</svg>"
     )
     expected_py38plus = (
         '<svg fill="none" viewBox="0 0 24 24" '
-        + 'stroke="currentColor" aria-hidden="true" width="24" height="24">\n'
-        + '  <path d="M12 14l9-5-9-5-9 5 9 5z" stroke-width="1" />\n'
+        + 'stroke-width="2" stroke="currentColor" aria-hidden="true" '
+        + 'width="24" height="24">\n'
+        + '  <path d="M12 14l9-5-9-5-9 5 9 5z" stroke-linecap="butt" />\n'
         + '  <path d="M12 14l6.16-3.422a12.083 12.083 0 01.665 6.479A11.952 11.952 0 '
         + "0012 20.055a11.952 11.952 0 00-6.824-2.998 12.078 12.078 0 01.665-6.479L12 "
-        + '14z" stroke-width="1" />\n'
-        + '  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1" '
+        + '14z" stroke-linecap="butt" />\n'
+        + '  <path stroke-linecap="butt" stroke-linejoin="round" '
         + 'd="M12 14l9-5-9-5-9 5 9 5zm0 0l6.16-3.422a12.083 12.083 0 01.665 '
         + "6.479A11.952 11.952 0 0012 20.055a11.952 11.952 0 00-6.824-2.998 12.078 "
         + '12.078 0 01.665-6.479L12 14zm-4 6v-7.5l4-2.222" />\n'
@@ -111,8 +115,8 @@ def test_success_outline_complete():
 
     expected_py37 = (
         '<svg aria-hidden="true" class="h-4 w-4" data-test="a &lt; 2" '
-        + 'fill="none" height="48" stroke="currentColor" viewBox="0 0 24 24" '
-        + 'width="48">\n'
+        + 'fill="none" height="48" stroke="currentColor" stroke-width="2" '
+        + 'viewBox="0 0 24 24" width="48">\n'
         + '  <path d="M12 14l9-5-9-5-9 5 9 5z" />\n'
         + '  <path d="M12 14l6.16-3.422a12.083 12.083 0 01.665 6.479A11.952 11.952 0 '
         + "0012 20.055a11.952 11.952 0 00-6.824-2.998 12.078 12.078 0 01.665-6.479L12 "
@@ -120,18 +124,18 @@ def test_success_outline_complete():
         + '  <path d="M12 14l9-5-9-5-9 5 9 5zm0 0l6.16-3.422a12.083 12.083 0 01.665 '
         + "6.479A11.952 11.952 0 0012 20.055a11.952 11.952 0 00-6.824-2.998 12.078 "
         + '12.078 0 01.665-6.479L12 14zm-4 6v-7.5l4-2.222" stroke-linecap="round" '
-        + 'stroke-linejoin="round" stroke-width="2" />\n'
+        + 'stroke-linejoin="round" />\n'
         + "</svg>"
     )
     expected_py38plus = (
         '<svg fill="none" viewBox="0 0 24 24" '
-        + 'stroke="currentColor" aria-hidden="true" width="48" height="48" '
-        + 'class="h-4 w-4" data-test="a &lt; 2">\n'
+        + 'stroke-width="2" stroke="currentColor" aria-hidden="true" '
+        + 'width="48" height="48" class="h-4 w-4" data-test="a &lt; 2">\n'
         + '  <path d="M12 14l9-5-9-5-9 5 9 5z" />\n'
         + '  <path d="M12 14l6.16-3.422a12.083 12.083 0 01.665 6.479A11.952 11.952 0 '
         + "0012 20.055a11.952 11.952 0 00-6.824-2.998 12.078 12.078 0 01.665-6.479L12 "
         + '14z" />\n'
-        + '  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" '
+        + '  <path stroke-linecap="round" stroke-linejoin="round" '
         + 'd="M12 14l9-5-9-5-9 5 9 5zm0 0l6.16-3.422a12.083 12.083 0 01.665 '
         + "6.479A11.952 11.952 0 0012 20.055a11.952 11.952 0 00-6.824-2.998 12.078 "
         + '12.078 0 01.665-6.479L12 14zm-4 6v-7.5l4-2.222" />\n'
