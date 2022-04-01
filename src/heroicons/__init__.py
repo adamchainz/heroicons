@@ -37,7 +37,6 @@ _PATH_ATTR_NAMES = frozenset(
     {
         "stroke-linecap",
         "stroke-linejoin",
-        "stroke-width",
         "vector-effect",
     }
 )

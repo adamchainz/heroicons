@@ -19,7 +19,7 @@ def main(argv: list[str] | None = None) -> int:
     args = parser.parse_args(argv)
     version: str = args.version
 
-    zip_url = f"https://github.com/tailwindlabs/heroicons/archive/{version}.zip"
+    zip_url = f"https://github.com/tailwindlabs/heroicons/archive/v{version}.zip"
     response = requests.get(zip_url)
     if response.status_code != 200:
         print(f"Got status code {response.status_code} for {zip_url}", file=sys.stderr)

@@ -2,6 +2,13 @@
 History
 =======
 
+* Upgrade embedded icon set to version 1.0.6.
+  Check out the `changes in the upstream repo <https://github.com/tailwindlabs/heroicons/commits/master>`__.
+
+  One key change is that the ``stroke-width`` attribute is now on ``<svg>`` elements rather than ``<path>``\s.
+  This may require you to change your CSS, and allows you to use Tailwind’s ``stroke-<n>`` classes.
+  See `upstream issue #241 <https://github.com/tailwindlabs/heroicons/issues/241>`__.
+
 1.5.0 (2022-01-10)
 ------------------
 
