@@ -1,11 +1,4 @@
-global-exclude *.py[cod]
-prune __pycache__
-prune requirements
-prune tests
-exclude .editorconfig
-exclude .pre-commit-config.yaml
 exclude download_heroicons.py
-exclude tox.ini
 include HISTORY.rst
 include LICENSE
 include pyproject.toml
