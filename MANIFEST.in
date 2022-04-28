@@ -1,4 +1,3 @@
-exclude download_heroicons.py
 include HISTORY.rst
 include LICENSE
 include pyproject.toml
