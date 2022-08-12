@@ -7,7 +7,7 @@ from jinja2 import DictLoader, Environment
 from heroicons.jinja import heroicon_outline, heroicon_solid
 
 
-def make_environment(index_template):
+def make_environment(index_template: str) -> Environment:
     env = Environment(loader=DictLoader({"index": index_template}))
     env.globals.update(
         {

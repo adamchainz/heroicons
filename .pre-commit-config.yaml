@@ -46,4 +46,6 @@ repos:
   hooks:
   - id: mypy
     additional_dependencies:
-    - types-requests
+    - django-stubs==1.12.0
+    - jinja2
+    - markupsafe

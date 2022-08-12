@@ -6,11 +6,9 @@ from __future__ import annotations
 
 import argparse
 import os
-import sys
+import subprocess
 from io import BytesIO
 from zipfile import ZIP_DEFLATED, ZipFile
-
-import requests
 
 
 def main(argv: list[str] | None = None) -> int:
@@ -19,13 +17,19 @@ def main(argv: list[str] | None = None) -> int:
     args = parser.parse_args(argv)
     version: str = args.version
 
-    zip_url = f"https://github.com/tailwindlabs/heroicons/archive/v{version}.zip"
-    response = requests.get(zip_url)
-    if response.status_code != 200:
-        print(f"Got status code {response.status_code} for {zip_url}", file=sys.stderr)
-        return 1
+    proc = subprocess.run(
+        [
+            "curl",
+            "--fail",
+            "--location",
+            f"https://github.com/tailwindlabs/heroicons/archive/v{version}.zip",
+        ],
+        stdout=subprocess.PIPE,
+    )
+    if proc.returncode != 0:
+        raise SystemExit(1)
 
-    input_zip = ZipFile(BytesIO(response.content))
+    input_zip = ZipFile(BytesIO(proc.stdout))
     input_prefix = f"heroicons-{version}/optimized/"
 
     output_path = "src/heroicons/heroicons.zip"
