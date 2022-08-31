@@ -11,6 +11,18 @@ from io import BytesIO
 from zipfile import ZIP_DEFLATED, ZipFile
 
 
+def rename_file(filename: str) -> str:
+    if filename.startswith('24/solid'):
+        return filename.replace('24/solid', 'solid')
+    elif filename.startswith('24/outline'):
+        return filename.replace('24/outline', 'outline')
+    elif filename.startswith('20/solid'):
+        return filename.replace('20/solid', 'mini')
+
+    return filename
+
+
+
 def main(argv: list[str] | None = None) -> int:
     parser = argparse.ArgumentParser()
     parser.add_argument("version", help="Git SHA")
@@ -46,7 +58,8 @@ def main(argv: list[str] | None = None) -> int:
                 info = input_zip.getinfo(name)
                 data = input_zip.read(name)
 
-                new_name = name[len(input_prefix) :]
+                new_name = rename_file(name[len(input_prefix) :])
+
                 info.filename = new_name
                 output_zip.writestr(info, data)
                 print(new_name)
