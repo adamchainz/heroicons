@@ -4,7 +4,7 @@ import sys
 
 from jinja2 import DictLoader, Environment
 
-from heroicons.jinja import heroicon_outline, heroicon_solid
+from heroicons.jinja import heroicon_outline, heroicon_solid, heroicon_mini
 
 
 def make_environment(index_template: str) -> Environment:
@@ -13,6 +13,7 @@ def make_environment(index_template: str) -> Environment:
         {
             "heroicon_outline": heroicon_outline,
             "heroicon_solid": heroicon_solid,
+            "heroicon_mini": heroicon_mini,
         }
     )
     return env
