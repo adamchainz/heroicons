@@ -9,7 +9,15 @@ History
   Most icons have been redrawn or resized, some renamed, and there's a new “mini” set.
   You’ll need to make some code and design changes when updating to this release.
 
-  Thanks to Andrew Ingram in `PR #143 <https://github.com/adamchainz/heroicons/pull/143>`__.
+  To assist with upgrading, this package now includes a CLI for updating templates to handle the icon renames:
+
+  .. code-block:: console
+
+      $ python -m heroicons update <filenames>
+
+  See the `CLI documentation section <https://github.com/adamchainz/heroicons#cli>`__.
+
+  Thanks to Andrew Ingram for upgrading the icon set in `PR #143 <https://github.com/adamchainz/heroicons/pull/143>`__.
 
 1.8.0 (2022-06-05)
 ------------------
