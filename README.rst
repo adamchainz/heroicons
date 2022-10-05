@@ -91,11 +91,11 @@ An outline “academic-cap” icon:
 
     {% heroicon_outline "academic-cap" %}
 
-The same icon, solid, at 40x40 pixels, with some CSS classes:
+The same icon, solid, at 40x40 pixels, and a CSS class:
 
 .. code-block:: django
 
-    {% heroicon_outline "academic-cap" size=40 class="h-4 w-4 inline" %}
+    {% heroicon_outline "academic-cap" size=40 class="mr-4" %}
 
 That icon again, but with the paths changed to a narrower stroke width, and a "data-controller" attribute declared:
 
@@ -155,11 +155,11 @@ An outline “academic-cap” icon:
 
     {{ heroicon_outline("academic-cap") }}
 
-The same icon, solid, at 40x40 pixels, with some CSS classes:
+The same icon, solid, at 40x40 pixels, and a CSS class:
 
 .. code-block:: jinja
 
-    {{ heroicon_solid("academic-cap", size=40, class="h-4 w-4 inline") %}
+    {{ heroicon_solid("academic-cap", size=40, class="mr-4") %}
 
 That icon again, but with the paths changed to a narrower stroke width, and a "data-controller" attribute declared:
 
