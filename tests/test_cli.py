@@ -1,7 +1,5 @@
 from __future__ import annotations
 
-import re
-
 import pytest
 
 from heroicons import __main__  # noqa: F401
@@ -15,7 +13,7 @@ def test_no_subcommand(capsys):
     assert excinfo.value.code == 2
     out, err = capsys.readouterr()
     assert err == (
-        "usage: __main__.py [-h] [--version] {update} ...\n"
+        "usage: __main__.py [-h] {update} ...\n"
         + "__main__.py: error: the following arguments are required: command\n"
     )
     assert out == ""
@@ -26,17 +24,6 @@ def test_help():
         main(["--help"])
 
     assert excinfo.value.code == 0
-
-
-def test_version(capsys):
-    with pytest.raises(SystemExit) as excinfo:
-        main(["--version"])
-
-    out, err = capsys.readouterr()
-
-    assert excinfo.value.code == 0
-    assert re.fullmatch(r"__main__\.py \d+\.\d+\.\d+\n", out)
-    assert err == ""
 
 
 def test_update_no_files(capsys):

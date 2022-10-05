@@ -6,18 +6,11 @@ import re
 import sys
 from collections.abc import Sequence
 from contextlib import closing
-from importlib import metadata
 from io import TextIOWrapper
 
 
 def main(argv: Sequence[str] | None = None) -> int:
     parser = argparse.ArgumentParser()
-    parser.add_argument(
-        "--version",
-        action="version",
-        version=f'%(prog)s {metadata.version("heroicons")}',
-    )
-
     subparsers = parser.add_subparsers(dest="command", required=True)
 
     update_parser = subparsers.add_parser(
