@@ -179,15 +179,14 @@ Invoke the CLI like so:
 
     $ python -m heroicons update <filename> <filename2> ...
 
-To run it on all template files, use globbing, or another technique for applying to many files, such as |with git ls-files pipe xargs|__.
-For example:
+To run it on all your template files, you can use |git ls-files pipe xargs|__:
 
-.. |with git ls-files pipe xargs| replace:: with ``git ls-files | xargs``
+.. |git ls-files pipe xargs| replace:: ``git ls-files | xargs``
 __ https://adamj.eu/tech/2022/03/09/how-to-run-a-command-on-many-files-in-your-git-repository/
 
-.. code-block:: sh
+.. code-block:: console
 
-    git ls-files -- '*.html' | xargs python -m heroicons update
+    $ git ls-files -- '*.html' | xargs python -m heroicons update
 
 The tool will update icon names for those that were renamed in v2, as per the table in the `heroicons release notes <https://github.com/tailwindlabs/heroicons/releases/tag/v2.0.0>`__.
 It should find both Django and Jinja template tags:
