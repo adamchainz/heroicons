@@ -166,3 +166,25 @@ That icon again, but with the paths changed to a narrower stroke width, and a "d
 .. code-block:: jinja
 
     {{ heroicon_outline("academic-cap", stroke_width=1, data_controller="academia") %}
+
+CLI
+---
+
+Many icons were renamed in version 2 of heroicons.
+To assist you with migrating from version 1, this package includes a CLI that can update your template tags for the renames.
+
+Invoke the CLI like so:
+
+.. code-block:: console
+
+    $ python -m heroicons update <filename> <filename2> ...
+
+To run it on all template files, use globbing, or another technique for applying to many files, such as |with git ls-files pipe xargs|__.
+For example:
+
+.. |with git ls-files pipe xargs| replace:: with ``git ls-files | xargs``
+__ https://adamj.eu/tech/2022/03/09/how-to-run-a-command-on-many-files-in-your-git-repository/
+
+.. code-block:: sh
+
+    git ls-files -- '*.html' | xargs python -m heroicons update
