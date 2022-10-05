@@ -22,7 +22,7 @@ def main(argv: Sequence[str] | None = None) -> int:
 
     if args.command == "update":
         return update_files(files=args.file)
-    else:
+    else:  # pragma: no cover
         # Unreachable
         raise NotImplementedError(f"Command {args.command} does not exist.")
 
