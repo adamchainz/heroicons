@@ -2,6 +2,9 @@
 History
 =======
 
+2.0.0 (2022-10-05)
+------------------
+
 * Upgrade embedded icon set to v2, specifically v2.0.11.
   See the `heroicons v2 release notes <https://github.com/tailwindlabs/heroicons/releases/tag/v2.0.0>`__.
 
