@@ -125,7 +125,7 @@ Jinja templates
            }
        )
 
-Now in your templates you can call those three functions, which render ``<svg>`` icons corresponding to the three icon styles in the set.
+Now in your templates you can call those functions, which render ``<svg>`` icons corresponding to the icon styles in the set.
 The functions take these arguments:
 
 * ``name``, positional: the name of the icon to use.
