@@ -3,13 +3,19 @@ History
 =======
 
 * Upgrade embedded icon set to v2, specifically v2.0.11.
-  Check the `heroicons v2 release notes <https://github.com/tailwindlabs/heroicons/releases/tag/v2.0.0>`__.
+  See the `heroicons v2 release notes <https://github.com/tailwindlabs/heroicons/releases/tag/v2.0.0>`__.
 
-  heroicons v2 is a substantially different icon set that makes a number of breaking changes.
-  Most icons have been redrawn or resized, some renamed, and there's a new “mini” set.
-  You’ll need to make some code and design changes when updating to this release.
+  heroicons v2 is a substantially different icon set that makes a number of breaking changes:
 
-  To assist with upgrading, this package now includes a CLI for updating templates to handle the icon renames:
+  * Every icon has been redrawn.
+  * Many icons have been renamed.
+  * The “solid” style no longer defaults to 20px dimensions, but 24px.
+  * There’s a new “mini” style, solid icons with 20px dimensions.
+
+  You’ll proboably need to make some code and design changes when updating to this release.
+  You don’t necessarily need to upgrade, but it’s unlikely this package will be maintained for the 1.x series icons going forwards.
+
+  To assist with upgrading, this package now includes a CLI for updating templates:
 
   .. code-block:: console
 

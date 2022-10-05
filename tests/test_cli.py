@@ -241,7 +241,7 @@ def test_update_jinja_no_space(capsys, tmp_path):
 
 def test_update_jinja_extra_space(capsys, tmp_path):
     path = tmp_path / "example.html"
-    path.write_text('{{   heroicon_outline("adjustments")   }}\n')
+    path.write_text('{{   heroicon_outline(  "adjustments"  )   }}\n')
 
     result = main(["update", str(path)])
 
@@ -249,4 +249,19 @@ def test_update_jinja_extra_space(capsys, tmp_path):
     out, err = capsys.readouterr()
     assert out == ""
     assert err == f"Rewriting {path}\n"
-    assert path.read_text() == '{{   heroicon_outline("adjustments-vertical")   }}\n'
+    assert (
+        path.read_text() == '{{   heroicon_outline(  "adjustments-vertical"  )   }}\n'
+    )
+
+
+def test_update_jinja_multiline(capsys, tmp_path):
+    path = tmp_path / "example.html"
+    path.write_text('{{\nheroicon_outline(\n"adjustments"\n)\n}}\n')
+
+    result = main(["update", str(path)])
+
+    assert result == 1
+    out, err = capsys.readouterr()
+    assert out == ""
+    assert err == f"Rewriting {path}\n"
+    assert path.read_text() == '{{\nheroicon_outline(\n"adjustments-vertical"\n)\n}}\n'

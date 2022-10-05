@@ -77,17 +77,18 @@ jinja_re = re.compile(
     r"""
         (?P<start>
             \{\{
-            \ *
+            [ \n]*
             heroicon_(outline|solid)
             \(
+            [ \n]*
         )
         (?P<quote>["'])
-        (?P<name>[a-z-]+)
+        (?P<name>[a-z0-9-]+)
         (?P=quote)
         (?P<tail>
-            .*?
+            [^)]*
             \)
-            \ *
+            [ \n]*
             \}\}
         )
     """,

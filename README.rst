@@ -171,7 +171,7 @@ CLI
 ---
 
 Many icons were renamed in version 2 of heroicons.
-To assist you with migrating from version 1, this package includes a CLI that can update your template tags for the renames.
+To assist you with migrating from version 1, this package includes a CLI that can update your heroicons template tags.
 
 Invoke the CLI like so:
 
@@ -188,3 +188,28 @@ __ https://adamj.eu/tech/2022/03/09/how-to-run-a-command-on-many-files-in-your-g
 .. code-block:: sh
 
     git ls-files -- '*.html' | xargs python -m heroicons update
+
+The tool will update icon names for those that were renamed in v2, as per the table in the `heroicons release notes <https://github.com/tailwindlabs/heroicons/releases/tag/v2.0.0>`__.
+It should find both Django and Jinja template tags:
+
+.. code-block:: diff
+
+  -{% heroicon_outline "archive" class="mr-2" %}
+  +{% heroicon_outline "archive-box" class="mr-2" %}
+
+  -{{ heroicon_solid("archive", class="mr-2") }}
+  +{{ heroicon_solid("archive-box", class="mr-2") }}
+
+Also note that ``solid`` icons have changed their default size from 20px to 24px.
+If you are using them without specifying a size, they will now be larger, which could break some designs.
+You can keep the v1 size by specifying it exactly:
+
+.. code-block:: django
+
+    {% heroicon_solid "archive-box" size=20 %}
+
+.. code-block:: jinja
+
+    {{ heroicon_solid("archive-box", size=20) }}
+
+Good luck, and may the odds be ever in your favour.
