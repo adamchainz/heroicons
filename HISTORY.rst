@@ -2,6 +2,15 @@
 History
 =======
 
+* Upgrade embedded icon set to v2, specifically v2.0.11.
+  Check the `heroicons v2 release notes <https://github.com/tailwindlabs/heroicons/releases/tag/v2.0.0>`__.
+
+  heroicons v2 is a substantially different icon set that makes a number of breaking changes.
+  Most icons have been redrawn or resized, some renamed, and there's a new “mini” set.
+  You’ll need to make some code and design changes when updating to this release.
+
+  Thanks to Andrew Ingram in `PR #143 <https://github.com/adamchainz/heroicons/pull/143>`__.
+
 1.8.0 (2022-06-05)
 ------------------
 

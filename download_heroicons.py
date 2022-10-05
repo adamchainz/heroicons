@@ -13,7 +13,7 @@ from zipfile import ZIP_DEFLATED, ZipFile
 
 def main(argv: list[str] | None = None) -> int:
     parser = argparse.ArgumentParser()
-    parser.add_argument("version", help="Git SHA")
+    parser.add_argument("version", help="dotted version number")
     args = parser.parse_args(argv)
     version: str = args.version
 
@@ -46,7 +46,8 @@ def main(argv: list[str] | None = None) -> int:
                 info = input_zip.getinfo(name)
                 data = input_zip.read(name)
 
-                new_name = name[len(input_prefix) :]
+                new_name = rename_file(name[len(input_prefix) :])
+
                 info.filename = new_name
                 output_zip.writestr(info, data)
                 print(new_name)
@@ -54,6 +55,17 @@ def main(argv: list[str] | None = None) -> int:
     print("\n✅ Written!")
 
     return 0
+
+
+def rename_file(filename: str) -> str:
+    if filename.startswith("24/solid"):
+        return filename[len("24/") :]
+    elif filename.startswith("24/outline"):
+        return filename[len("24/") :]
+    elif filename.startswith("20/solid"):
+        return "mini" + filename[len("20/solid") :]
+    else:
+        raise ValueError(f"Unknown filename {filename!r}")
 
 
 if __name__ == "__main__":

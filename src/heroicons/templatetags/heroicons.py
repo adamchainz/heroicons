@@ -14,8 +14,13 @@ def heroicon_outline(name: str, *, size: int = 24, **kwargs: object) -> str:
 
 
 @register.simple_tag
-def heroicon_solid(name: str, *, size: int = 20, **kwargs: object) -> str:
+def heroicon_solid(name: str, *, size: int = 24, **kwargs: object) -> str:
     return _render_icon("solid", name, size, **kwargs)
+
+
+@register.simple_tag
+def heroicon_mini(name: str, *, size: int = 20, **kwargs: object) -> str:
+    return _render_icon("mini", name, size, **kwargs)
 
 
 def _render_icon(style: str, name: str, size: int, **kwargs: object) -> str:

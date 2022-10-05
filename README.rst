@@ -61,14 +61,14 @@ Now in your templates you can load the template library with:
 
     {% load heroicons %}
 
-This provides two tags to render SVG icons: ``heroicon_outline`` and ``heroicon_solid``, corresponding to the two icon styles in the set.
+This provides three tags to render SVG icons: ``heroicon_outline``, ``heroicon_solid`` and ``heroicon_mini``, corresponding to the three icon styles in the set.
 The tags take these arguments:
 
 * ``name``, positional: the name of the icon to use.
   You can see the icon names on the `heroicons.com grid <https://heroicons.com/>`__.
 
 * ``size``, keyword: an integer that will be used for the width and height attributes of the output ``<svg>`` tag.
-  Defaults to the icons’ designed sizes: ``24`` for outline and ``20`` for solid.
+  Defaults to the icons’ designed sizes: ``24`` for outline and solid, and ``20`` for mini.
 
 * Any number of keyword arguments.
   These will be added as attributes in the output HTML.
@@ -108,12 +108,12 @@ Jinja templates
 
 1. Install with ``python -m pip install heroicons[jinja]``.
 
-2. Adjust your Jinja ``Environment`` to add the two global functions ``heroicon_outline`` and ``heroicon_solid``, imported from ``heroicons.jinja``.
+2. Adjust your Jinja ``Environment`` to add the three global functions ``heroicon_outline``, ``heroicon_solid`` and ``heroicon_mini``, imported from ``heroicons.jinja``.
    For example:
 
    .. code-block:: python
 
-       from heroicons.jinja import heroicon_outline, heroicon_solid
+       from heroicons.jinja import heroicon_outline, heroicon_solid, heroicon_mini
        from jinja2 import Environment
 
        env = Environment()
@@ -121,17 +121,18 @@ Jinja templates
            {
                "heroicon_outline": heroicon_outline,
                "heroicon_solid": heroicon_solid,
+               "heroicon_mini": heroicon_mini,
            }
        )
 
-Now in your templates you can call those two functions, which render ``<svg>`` icons corresponding to the two icon styles in the set.
+Now in your templates you can call those functions, which render ``<svg>`` icons corresponding to the icon styles in the set.
 The functions take these arguments:
 
 * ``name``, positional: the name of the icon to use.
   You can see the icon names on the `heroicons.com grid <https://heroicons.com/>`__.
 
 * ``size``, keyword: an integer that will be used for the width and height attributes of the output ``<svg>`` tag.
-  Defaults to the icons’ designed sizes: ``24`` for outline and ``20`` for solid.
+  Defaults to the icons’ designed sizes: ``24`` for outline and solid, and ``20`` for mini.
 
 * Any number of keyword arguments.
   These will be added as HTML attributes to the output HTML.
