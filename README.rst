@@ -200,7 +200,7 @@ It should find both Django and Jinja template tags:
   -{{ heroicon_solid("archive", class="mr-2") }}
   +{{ heroicon_solid("archive-box", class="mr-2") }}
 
-Also note that ``solid`` icons have changed their default size from 20px to 24px.
+Also note that ``solid`` icons changed their default size from 20px to 24px.
 If you are using them without specifying a size, they will now be larger, which could break some designs.
 You can keep the v1 size by specifying it exactly:
 
@@ -211,5 +211,13 @@ You can keep the v1 size by specifying it exactly:
 .. code-block:: jinja
 
     {{ heroicon_solid("archive-box", size=20) }}
+
+Or through other mechanisms:
+
+* Tailwind’s `width <https://tailwindcss.com/docs/width>`__ and `height <https://tailwindcss.com/docs/height>`__ classes: ``w-5 h-5``
+* other CSS classes
+* sizing the containing elements
+
+Due to the variety of ways to size icons, it’s unfortunately not possible to automatically add the size to unsized solid icons.
 
 Good luck, and may the odds be ever in your favour.
