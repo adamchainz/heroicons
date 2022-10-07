@@ -2,6 +2,9 @@
 History
 =======
 
+2.1.0 (2022-10-07)
+------------------
+
 * Support ``size=None`` to disable setting the ``width`` and ``height`` icon attributes.
 
 2.0.0 (2022-10-05)
