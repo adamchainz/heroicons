@@ -9,21 +9,21 @@ register = template.Library()
 
 
 @register.simple_tag
-def heroicon_outline(name: str, *, size: int = 24, **kwargs: object) -> str:
+def heroicon_outline(name: str, *, size: int | None = 24, **kwargs: object) -> str:
     return _render_icon("outline", name, size, **kwargs)
 
 
 @register.simple_tag
-def heroicon_solid(name: str, *, size: int = 24, **kwargs: object) -> str:
+def heroicon_solid(name: str, *, size: int | None = 24, **kwargs: object) -> str:
     return _render_icon("solid", name, size, **kwargs)
 
 
 @register.simple_tag
-def heroicon_mini(name: str, *, size: int = 20, **kwargs: object) -> str:
+def heroicon_mini(name: str, *, size: int | None = 20, **kwargs: object) -> str:
     return _render_icon("mini", name, size, **kwargs)
 
 
-def _render_icon(style: str, name: str, size: int, **kwargs: object) -> str:
+def _render_icon(style: str, name: str, size: int | None, **kwargs: object) -> str:
     # simple_tag's parsing loads passed strings as safe, but they aren't
     # Cast the SafeString's back to normal strings the only way possible, by
     # concatenating the empty string.
