@@ -42,9 +42,10 @@ _PATH_ATTR_NAMES = frozenset(
 )
 
 
-def _render_icon(style: str, name: str, size: int, **kwargs: object) -> str:
+def _render_icon(style: str, name: str, size: int | None, **kwargs: object) -> str:
     svg = deepcopy(_load_icon(style, name))
-    svg.attrib["width"] = svg.attrib["height"] = str(size)
+    if size is not None:
+        svg.attrib["width"] = svg.attrib["height"] = str(size)
 
     svg_attrs = {}
     path_attrs = {}

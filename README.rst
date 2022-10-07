@@ -69,6 +69,7 @@ The tags take these arguments:
 
 * ``size``, keyword: an integer that will be used for the width and height attributes of the output ``<svg>`` tag.
   Defaults to the icons’ designed sizes: ``24`` for outline and solid, and ``20`` for mini.
+  Can be ``None``, in which case no width or height attributes will be output.
 
 * Any number of keyword arguments.
   These will be added as attributes in the output HTML.
@@ -133,6 +134,7 @@ The functions take these arguments:
 
 * ``size``, keyword: an integer that will be used for the width and height attributes of the output ``<svg>`` tag.
   Defaults to the icons’ designed sizes: ``24`` for outline and solid, and ``20`` for mini.
+  Can be ``None``, in which case no width or height attributes will be output.
 
 * Any number of keyword arguments.
   These will be added as HTML attributes to the output HTML.
