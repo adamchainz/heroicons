@@ -2,6 +2,9 @@
 History
 =======
 
+2.1.1 (2022-10-29)
+------------------
+
 * Upgrade embedded icon set to version 2.0.12.
   This has one fix to the ``information-circle`` icon.
 
