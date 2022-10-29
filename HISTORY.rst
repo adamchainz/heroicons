@@ -2,6 +2,11 @@
 History
 =======
 
+* Upgrade embedded icon set to version 2.0.12.
+  This has one fix to the ``information-circle`` icon.
+
+  See the `changes in the upstream repo <https://github.com/tailwindlabs/heroicons/compare/v2.0.11...v2.0.12>`__.
+
 2.1.0 (2022-10-07)
 ------------------
 
