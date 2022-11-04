@@ -6,7 +6,8 @@ from copy import deepcopy
 from xml.etree import ElementTree
 from zipfile import ZipFile
 
-from heroicons._compat import open_binary, str_removeprefix
+from heroicons._compat import open_binary
+from heroicons._compat import str_removeprefix
 
 
 class IconDoesNotExist(Exception):

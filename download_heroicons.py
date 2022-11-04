@@ -8,7 +8,8 @@ import argparse
 import os
 import subprocess
 from io import BytesIO
-from zipfile import ZIP_DEFLATED, ZipFile
+from zipfile import ZIP_DEFLATED
+from zipfile import ZipFile
 
 
 def main(argv: list[str] | None = None) -> int:
