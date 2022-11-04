@@ -2,9 +2,12 @@ from __future__ import annotations
 
 import sys
 
-from jinja2 import DictLoader, Environment
+from jinja2 import DictLoader
+from jinja2 import Environment
 
-from heroicons.jinja import heroicon_mini, heroicon_outline, heroicon_solid
+from heroicons.jinja import heroicon_mini
+from heroicons.jinja import heroicon_outline
+from heroicons.jinja import heroicon_solid
 
 
 def make_environment(index_template: str) -> Environment:

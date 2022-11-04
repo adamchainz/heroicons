@@ -5,7 +5,8 @@ from typing import Any
 
 import django
 from django.conf import settings
-from django.template import Context, Template
+from django.template import Context
+from django.template import Template
 
 settings.configure(
     ROOT_URLCONF=__name__,  # Make this module the urlconf
