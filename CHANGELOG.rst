@@ -4,6 +4,11 @@ Changelog
 
 * Support Django 4.2.
 
+* Upgrade embedded icon set to version 2.0.13.
+  This has one fix to the ``minus`` icon.
+
+  See the `upstream changelog <https://github.com/tailwindlabs/heroicons/blob/master/CHANGELOG.md>`__.
+
 2.1.1 (2022-10-29)
 ------------------
 
