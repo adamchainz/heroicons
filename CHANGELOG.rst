@@ -2,6 +2,9 @@
 Changelog
 =========
 
+2.2.0 (2023-02-25)
+------------------
+
 * Support Django 4.2.
 
 * Upgrade embedded icon set to version 2.0.13.
