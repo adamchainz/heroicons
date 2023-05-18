@@ -55,14 +55,33 @@ Django templates
            ...,
        ]
 
-Now in your templates you can load the template library with:
+Now your templates can load the template library with:
 
 .. code-block:: django
 
     {% load heroicons %}
 
-This provides three tags to render SVG icons: ``heroicon_outline``, ``heroicon_solid`` and ``heroicon_mini``, corresponding to the three icon styles in the set.
-The tags take these arguments:
+Alternatively, make the library available in all templates by adding it to `the builtins option <https://docs.djangoproject.com/en/stable/topics/templates/#django.template.backends.django.DjangoTemplates>`__:
+
+.. code-block:: python
+
+    TEMPLATES = [
+        {
+            "BACKEND": "django.template.backends.django.DjangoTemplates",
+            # ...
+            "OPTIONS": {
+                # ...
+                "builtins": [
+                    ...,
+                    "heroicons.templatetags.heroicons",
+                    ...,
+                ],
+            },
+        }
+    ]
+
+The library provides three tags to render SVG icons: ``heroicon_outline``, ``heroicon_solid``, and ``heroicon_mini``.
+These tags correspond to the three styles in the icon set and take these arguments:
 
 * ``name``, positional: the name of the icon to use.
   You can see the icon names on the `heroicons.com grid <https://heroicons.com/>`__.
@@ -103,27 +122,6 @@ That icon again, but with the paths changed to a narrower stroke width, and a "d
 .. code-block:: django
 
     {% heroicon_outline "academic-cap" stroke_width=1 data_controller="academia" %}
-
-Note: To make the heroicon templatetags available in all your templates without having to ``{% load heroicons %}`` manually, you can add them as a built-in in ``TEMPLATES`` in your settings.py file:
-
-.. code-block:: python
-
-    TEMPLATES = [
-        {
-            "BACKEND": "django.template.backends.django.DjangoTemplates",
-            "DIRS": [BASE_DIR / "templates"],
-            "APP_DIRS": True,
-            "OPTIONS": {
-                "context_processors": [
-                    "django.template.context_processors.debug",
-                    "django.template.context_processors.request",
-                    "django.contrib.auth.context_processors.auth",
-                    "django.contrib.messages.context_processors.messages",
-                ],
-                "builtins": ["heroicons.templatetags.heroicons"],
-            },
-        },
-    ]
 
 Jinja templates
 ~~~~~~~~~~~~~~~
