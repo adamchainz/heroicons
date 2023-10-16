@@ -20,19 +20,18 @@ heroicons
 
 Use `heroicons <https://heroicons.com/>`__ in your Django and Jinja templates.
 
+----
+
+**Improve your Django and Git skills** with `my books <https://adamj.eu/books/>`__.
+
+----
+
 Requirements
 ------------
 
 Python 3.8 to 3.12 supported.
 
 Django 3.2 to 5.0 supported.
-
-----
-
-**Working on a Django project?**
-Improve your skills with `one of my books <https://adamj.eu/books/>`__.
-
-----
 
 Usage
 -----
