@@ -79,14 +79,20 @@ Alternatively, make the library available in all templates by adding it to `the 
         }
     ]
 
-The library provides three tags to render SVG icons: ``heroicon_outline``, ``heroicon_solid``, and ``heroicon_mini``.
-These tags correspond to the three styles in the icon set and take these arguments:
+The library provides these tags to render SVG icons in their corresponding styles:
+
+* ``heroicon_micro``
+* ``heroicon_mini``
+* ``heroicon_outline``
+* ``heroicon_solid``
+
+The tags take these arguments:
 
 * ``name``, positional: the name of the icon to use.
   You can see the icon names on the `heroicons.com grid <https://heroicons.com/>`__.
 
 * ``size``, keyword: an integer that will be used for the width and height attributes of the output ``<svg>`` tag.
-  Defaults to the icons’ designed sizes: ``24`` for outline and solid, and ``20`` for mini.
+  Defaults to the icons’ designed sizes: ``24`` for outline and solid, ``20`` for mini, and ``16`` for micro.
   Can be ``None``, in which case no width or height attributes will be output.
 
 * Any number of keyword arguments.
@@ -127,20 +133,26 @@ Jinja templates
 
 1. Install with ``python -m pip install heroicons[jinja]``.
 
-2. Adjust your Jinja ``Environment`` to add the three global functions ``heroicon_outline``, ``heroicon_solid`` and ``heroicon_mini``, imported from ``heroicons.jinja``.
+2. Adjust your Jinja ``Environment`` to add the global ``heroicon_*`` functions from ``heroicons.jinja``.
    For example:
 
    .. code-block:: python
 
-       from heroicons.jinja import heroicon_outline, heroicon_solid, heroicon_mini
+       from heroicons.jinja import (
+           heroicon_micro,
+           heroicon_mini,
+           heroicon_outline,
+           heroicon_solid,
+       )
        from jinja2 import Environment
 
        env = Environment()
        env.globals.update(
            {
+               "heroicon_micro": heroicon_micro,
+               "heroicon_mini": heroicon_mini,
                "heroicon_outline": heroicon_outline,
                "heroicon_solid": heroicon_solid,
-               "heroicon_mini": heroicon_mini,
            }
        )
 
@@ -151,7 +163,7 @@ The functions take these arguments:
   You can see the icon names on the `heroicons.com grid <https://heroicons.com/>`__.
 
 * ``size``, keyword: an integer that will be used for the width and height attributes of the output ``<svg>`` tag.
-  Defaults to the icons’ designed sizes: ``24`` for outline and solid, and ``20`` for mini.
+  Defaults to the icons’ designed sizes: ``24`` for outline and solid, ``20`` for mini, and ``16`` for micro.
   Can be ``None``, in which case no width or height attributes will be output.
 
 * Any number of keyword arguments.
