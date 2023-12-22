@@ -45,7 +45,7 @@ def main(argv: list[str] | None = None) -> int:
         for name in sorted(input_zip.namelist()):
             if name.startswith(input_prefix) and name.endswith(".svg"):
                 info = input_zip.getinfo(name)
-                data = input_zip.read(name)
+                data = input_zip.read(name).replace(b' data-slot="icon"', b"")
 
                 new_name = rename_file(name[len(input_prefix) :])
 
@@ -65,6 +65,8 @@ def rename_file(filename: str) -> str:
         return filename[len("24/") :]
     elif filename.startswith("20/solid"):
         return "mini" + filename[len("20/solid") :]
+    elif filename.startswith("16/solid"):
+        return "micro" + filename[len("16/solid") :]
     else:
         raise ValueError(f"Unknown filename {filename!r}")
 

@@ -2,6 +2,15 @@
 Changelog
 =========
 
+* Upgrade embedded icon set to version 2.1.1.
+  This includes the new micro icons, which are available with the new ``heroicon_micro`` tags.
+
+  See the `upstream changelog <https://github.com/tailwindlabs/heroicons/blob/master/CHANGELOG.md>`__ and `micro icon announcement post <https://tailwindcss.com/blog/heroicons-micro>`__.
+
+  (Note: the upstream also added ``data-slot="icon"`` to all icons, with no clear purpose or changelog note.
+  This has been removed in this package because it’s of unclear utility.
+  Queried in `this comment <https://github.com/tailwindlabs/heroicons/commit/09740d9c42ff7f0ff0f9f68666d56e4d3f9f7428#commitcomment-135607421>`__.)
+
 2.5.0 (2023-10-11)
 ------------------
 
