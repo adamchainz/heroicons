@@ -6,7 +6,7 @@ requires = [
 
 [project]
 name = "heroicons"
-version = "2.5.0"
+version = "2.6.0"
 description = "Use heroicons in your Django and Jinja templates."
 readme = {file = "README.rst", content-type = "text/x-rst"}
 keywords = [

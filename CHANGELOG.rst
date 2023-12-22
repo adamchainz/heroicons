@@ -2,6 +2,9 @@
 Changelog
 =========
 
+2.6.0 (2023-12-22)
+------------------
+
 * Upgrade embedded icon set to version 2.1.1.
   This includes the new micro icons, which are available with the new ``heroicon_micro`` tags.
 
