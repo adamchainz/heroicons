@@ -1,8 +1,8 @@
 from __future__ import annotations
 
 from django import template
-from django.utils.safestring import mark_safe
 from django.utils.safestring import SafeString
+from django.utils.safestring import mark_safe
 
 import heroicons
 
