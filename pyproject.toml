@@ -8,11 +8,10 @@ requires = [
 name = "heroicons"
 version = "2.6.0"
 description = "Use heroicons in your Django and Jinja templates."
-readme = { file = "README.rst", content-type = "text/x-rst" }
+readme = "README.rst"
 keywords = [
   "Django Jinja",
 ]
-license = { text = "MIT" }
 authors = [
   { name = "Adam Johnson", email = "me@adamj.eu" },
 ]
