@@ -2,6 +2,13 @@
 Changelog
 =========
 
+
+* Upgrade embedded icon set to version 2.1.5.
+  This includes some new icons: ``arrow-turn-*``, ``bold``, ``calendar-date-range``, ``divide``, ``document-currency-*``, ``equals``, ``h1``, ``h2``, ``h3``, ``italic``, ``link-slash``, ``numbered-list``, ``percent-badge``, ``slash``, ``strikethrough``, and ``underline``.
+
+
+  See the `upstream changelog <https://github.com/tailwindlabs/heroicons/blob/master/CHANGELOG.md>`__.
+
 2.6.0 (2023-12-22)
 ------------------
 
