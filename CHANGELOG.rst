@@ -2,6 +2,9 @@
 Changelog
 =========
 
+2.7.0 (2024-08-06)
+------------------
+
 
 * Upgrade embedded icon set to version 2.1.5.
   This includes some new icons: ``arrow-turn-*``, ``bold``, ``calendar-date-range``, ``divide``, ``document-currency-*``, ``equals``, ``h1``, ``h2``, ``h3``, ``italic``, ``link-slash``, ``numbered-list``, ``percent-badge``, ``slash``, ``strikethrough``, and ``underline``.
