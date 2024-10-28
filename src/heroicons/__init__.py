@@ -3,11 +3,9 @@ from __future__ import annotations
 import functools
 from contextlib import closing
 from copy import deepcopy
+from importlib.resources import files
 from xml.etree import ElementTree
 from zipfile import ZipFile
-
-from heroicons._compat import open_binary
-from heroicons._compat import str_removeprefix
 
 
 class IconDoesNotExist(Exception):
@@ -16,7 +14,7 @@ class IconDoesNotExist(Exception):
 
 @functools.lru_cache(maxsize=128)
 def _load_icon(style: str, name: str) -> ElementTree.Element:
-    zip_data = open_binary("heroicons", "heroicons.zip")
+    zip_data = (files("heroicons") / "heroicons.zip").open("rb")
     with closing(zip_data), ZipFile(zip_data, "r") as zip_file:
         try:
             svg_bytes = zip_file.read(f"{style}/{name}.svg")
@@ -29,7 +27,7 @@ def _load_icon(style: str, name: str) -> ElementTree.Element:
         for node in svg.iter():
             # Prevent output using the 'ns0' prefix for tags
             node.tag = ElementTree.QName(
-                str_removeprefix(node.tag, "{http://www.w3.org/2000/svg}")
+                node.tag.removeprefix("{http://www.w3.org/2000/svg}")
             )  # type: ignore[assignment]  # unclear if really allowed
         return svg
 
