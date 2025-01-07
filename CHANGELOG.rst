@@ -2,6 +2,11 @@
 Changelog
 =========
 
+* Upgrade embedded icon set to version 2.2.0.
+  This release has one small fix for the mini ``arrow-left-circle`` icon.
+
+  See the `upstream changelog <https://github.com/tailwindlabs/heroicons/blob/master/CHANGELOG.md>`__.
+
 2.9.0 (2024-10-28)
 ------------------
 
