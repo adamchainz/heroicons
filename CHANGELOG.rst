@@ -2,6 +2,9 @@
 Changelog
 =========
 
+2.10.0 (2025-01-07)
+-------------------
+
 * Upgrade embedded icon set to version 2.2.0.
   This release has one small fix for the mini ``arrow-left-circle`` icon.
 
