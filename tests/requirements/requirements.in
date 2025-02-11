@@ -1,5 +1,0 @@
-coverage[toml]
-django
-jinja2
-pytest
-pytest-randomly
