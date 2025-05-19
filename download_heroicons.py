@@ -2,14 +2,14 @@
 """
 Download the latest heroicons zip file and select only the optimized icons.
 """
+
 from __future__ import annotations
 
 import argparse
 import os
 import subprocess
 from io import BytesIO
-from zipfile import ZIP_DEFLATED
-from zipfile import ZipFile
+from zipfile import ZIP_DEFLATED, ZipFile
 
 
 def main(argv: list[str] | None = None) -> int:
@@ -59,9 +59,7 @@ def main(argv: list[str] | None = None) -> int:
 
 
 def rename_file(filename: str) -> str:
-    if filename.startswith("24/solid"):
-        return filename[len("24/") :]
-    elif filename.startswith("24/outline"):
+    if filename.startswith(("24/solid", "24/outline")):
         return filename[len("24/") :]
     elif filename.startswith("20/solid"):
         return "mini" + filename[len("20/solid") :]
