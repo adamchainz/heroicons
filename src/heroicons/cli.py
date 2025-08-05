@@ -5,7 +5,6 @@ import re
 import sys
 from collections.abc import Sequence
 from contextlib import closing
-from io import TextIOWrapper
 
 
 def main(argv: Sequence[str] | None = None) -> int:
@@ -15,21 +14,26 @@ def main(argv: Sequence[str] | None = None) -> int:
     update_parser = subparsers.add_parser(
         "update", help="Update template files from v1 to v2"
     )
-    update_parser.add_argument("file", type=argparse.FileType("r+"), nargs="+")
+    update_parser.add_argument("file", nargs="+")
 
     args = parser.parse_args(argv)
 
     if args.command == "update":
-        return update_files(files=args.file)
+        return update_files(filenames=args.file)
     else:  # pragma: no cover
         # Unreachable
         raise NotImplementedError(f"Command {args.command} does not exist.")
 
 
-def update_files(files: list[TextIOWrapper]) -> int:
+def update_files(filenames: list[str]) -> int:
     returncode = 0
 
-    for file in files:
+    for filename in filenames:
+        try:
+            file = open(filename, "r+", encoding="utf-8")  # noqa: SIM115
+        except OSError as e:  # pragma: no cover
+            print(f"Error opening file {filename!r}: {e}", file=sys.stderr)
+            return 2
         with closing(file):
             content = file.read()
             new_content = django_re.sub(django_replace, content)
