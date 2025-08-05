@@ -52,6 +52,18 @@ def test_update_empty(capsys, tmp_path):
     assert path.read_text() == ""
 
 
+def test_update_non_existent(capsys):
+    result = main(["update", "non-existent.html"])
+
+    assert result == 2
+    out, err = capsys.readouterr()
+    assert out == ""
+    assert (
+        err
+        == "Error opening file 'non-existent.html': [Errno 2] No such file or directory: 'non-existent.html'\n"
+    )
+
+
 def test_update_django_no_rename(capsys, tmp_path):
     path = tmp_path / "example.html"
     source = (
