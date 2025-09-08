@@ -1,5 +1,8 @@
 from __future__ import annotations
 
+import os
+import sys
+
 import pytest
 
 from heroicons import __main__  # noqa: F401
@@ -12,10 +15,16 @@ def test_no_subcommand(capsys):
 
     assert excinfo.value.code == 2
     out, err = capsys.readouterr()
-    assert err == (
-        "usage: __main__.py [-h] {update} ...\n"
-        + "__main__.py: error: the following arguments are required: command\n"
-    )
+    if sys.version_info >= (3, 14):
+        assert err == (
+            "usage: python -m pytest [-h] {update} ...\n"
+            + "python -m pytest: error: the following arguments are required: command\n"
+        )
+    else:
+        assert err == (
+            "usage: __main__.py [-h] {update} ...\n"
+            + "__main__.py: error: the following arguments are required: command\n"
+        )
     assert out == ""
 
 
@@ -32,10 +41,17 @@ def test_update_no_files(capsys):
 
     assert excinfo.value.code == 2
     out, err = capsys.readouterr()
-    assert err == (
-        "usage: __main__.py update [-h] file [file ...]\n"
-        + "__main__.py update: error: the following arguments are required: file\n"
-    )
+    if sys.version_info >= (3, 14):
+        python = os.path.basename(sys.executable)
+        assert err == (
+            f"usage: {python} -m pytest update [-h] file [file ...]\n"
+            + f"{python} -m pytest update: error: the following arguments are required: file\n"
+        )
+    else:
+        assert err == (
+            "usage: __main__.py update [-h] file [file ...]\n"
+            + "__main__.py update: error: the following arguments are required: file\n"
+        )
     assert out == ""
 
 
