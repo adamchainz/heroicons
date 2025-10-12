@@ -1,11 +1,10 @@
 from __future__ import annotations
 
-from typing import Any
-
 import functools
 from contextlib import closing
 from copy import deepcopy
 from importlib.resources import files
+from typing import Any
 from xml.etree import ElementTree
 from zipfile import ZipFile
 
