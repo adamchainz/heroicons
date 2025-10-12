@@ -4,6 +4,7 @@ import functools
 from contextlib import closing
 from copy import deepcopy
 from importlib.resources import files
+from typing import Any
 from xml.etree import ElementTree
 from zipfile import ZipFile
 
@@ -41,14 +42,14 @@ _PATH_ATTR_NAMES = frozenset(
 )
 
 
-def _render_icon(style: str, name: str, size: int | None, **kwargs: object) -> str:
+def _render_icon(style: str, name: str, size: int | None, attrs: dict[str, Any]) -> str:
     svg = deepcopy(_load_icon(style, name))
     if size is not None:
         svg.attrib["width"] = svg.attrib["height"] = str(size)
 
     svg_attrs = {}
     path_attrs = {}
-    for raw_name, value in kwargs.items():
+    for raw_name, value in attrs.items():
         name = raw_name.replace("_", "-")
         if name in _PATH_ATTR_NAMES:
             path_attrs[name] = str(value)
