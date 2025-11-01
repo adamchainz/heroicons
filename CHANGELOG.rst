@@ -2,6 +2,11 @@
 Changelog
 =========
 
+2.13.1 (2025-11-01)
+-------------------
+
+* Fix a bug where passing the `style` attribute as extra argument to template tags/functions would cause conflicts.
+
 2.13.0 (2025-09-18)
 -------------------
 
