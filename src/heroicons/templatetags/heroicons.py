@@ -30,7 +30,7 @@ def heroicon_solid(name: str, *, size: int | None = 24, **attrs: object) -> str:
 
 def _render_icon(
     style: str, name: str, size: int | None, attrs: dict[str, object]
-) -> SafeString:
+) -> str:
     # simple_tag's parsing loads passed strings as safe, but they aren't
     # Cast the SafeString's back to normal strings the only way possible, by
     # concatenating the empty string.
