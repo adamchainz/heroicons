@@ -67,6 +67,22 @@ def test_success_outline_complete():
     )
 
 
+def test_success_outline_with_style_kwarg():
+    env = make_environment(
+        '{{ heroicon_outline("academic-cap", style="color: red;", class="test-icon") }}'
+    )
+    template = env.get_template("index")
+
+    result = template.render()
+
+    # Verify the style attribute is applied
+    assert 'style="color: red;"' in result
+    assert 'class="test-icon"' in result
+    # Verify it's still rendered as an outline icon (not confused by style attr)
+    assert 'fill="none"' in result
+    assert 'stroke="currentColor"' in result
+
+
 def test_success_outline_size_none():
     env = make_environment('{{ heroicon_outline("academic-cap", size=None) }}')
     template = env.get_template("index")
