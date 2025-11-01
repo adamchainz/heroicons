@@ -11,24 +11,22 @@ register = template.Library()
 
 
 @register.simple_tag
-def heroicon_micro(name: str, *, size: int | None = 16, **attrs: dict[str, Any]) -> str:
+def heroicon_micro(name: str, *, size: int | None = 16, **attrs: Any) -> str:
     return _render_icon("micro", name, size, attrs)
 
 
 @register.simple_tag
-def heroicon_mini(name: str, *, size: int | None = 20, **attrs: dict[str, Any]) -> str:
+def heroicon_mini(name: str, *, size: int | None = 20, **attrs: Any) -> str:
     return _render_icon("mini", name, size, attrs)
 
 
 @register.simple_tag
-def heroicon_outline(
-    name: str, *, size: int | None = 24, **attrs: dict[str, Any]
-) -> str:
+def heroicon_outline(name: str, *, size: int | None = 24, **attrs: Any) -> str:
     return _render_icon("outline", name, size, attrs)
 
 
 @register.simple_tag
-def heroicon_solid(name: str, *, size: int | None = 24, **attrs: dict[str, Any]) -> str:
+def heroicon_solid(name: str, *, size: int | None = 24, **attrs: Any) -> str:
     return _render_icon("solid", name, size, attrs)
 
 
