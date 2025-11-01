@@ -66,6 +66,7 @@ def test_success_outline_complete():
         # fmt: on
     )
 
+
 def test_success_outline_with_style_kwarg():
     env = make_environment(
         '{{ heroicon_outline("academic-cap", style="color: red;", class="test-icon") }}'
