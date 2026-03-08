@@ -2,7 +2,14 @@
 Changelog
 =========
 
+Pending
+-------
+
 * Drop Python 3.9 support.
+
+* Allow passing the 'style' attribute to template tags.
+
+  Thanks to carpelli in `PR #341 <https://github.com/adamchainz/heroicons/pull/341>`__.
 
 2.13.0 (2025-09-18)
 -------------------
