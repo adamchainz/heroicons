@@ -2,8 +2,8 @@
 Changelog
 =========
 
-Pending
--------
+2.14.0 (2026-03-08)
+-------------------
 
 * Drop Python 3.9 support.
 
