@@ -51,7 +51,7 @@ urls.Repository = "https://github.com/adamchainz/heroicons"
 test = [
   "coverage[toml]",
   "jinja2",
-  "pytest",
+  "pytest>=9",
   "pytest-randomly",
 ]
 django42 = [ "django>=4.2a1,<5; python_version>='3.8'" ]
@@ -124,11 +124,7 @@ warn_unreachable = true
 overrides = [ { module = "tests.*", allow_untyped_defs = true } ]
 
 [tool.pytest]
-ini_options.addopts = """\
-    --strict-config
-    --strict-markers
-    """
-ini_options.xfail_strict = true
+strict = true
 
 [tool.coverage]
 run.branch = true
