@@ -2,6 +2,11 @@
 Changelog
 =========
 
+Unreleased
+----------
+
+* Drop Django 4.2 to 5.1 support.
+
 2.14.0 (2026-03-08)
 -------------------
 
